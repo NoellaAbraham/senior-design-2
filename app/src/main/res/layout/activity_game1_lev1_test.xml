@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#86C4CC"
+    tools:context=".Game1Lev1Test"
+    tools:layout_editor_absoluteX="-322dp"
+    tools:layout_editor_absoluteY="-195dp">
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="572dp"
+        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/Menubar"
+        android:layout_width="90dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="209dp"
+        android:layout_marginBottom="233dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="60dp"
+        android:visibility="visible"
+        app:itemIconTint="@color/Grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home_button"
+            android:translationX="15dp"
+            android:translationY="50dp"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/report"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/report"
+            android:translationX="15dp"
+            android:translationY="150dp" />
+
+        <ImageButton
+            android:id="@+id/feedback"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icons8_feedback_100"
+            android:translationX="15dp"
+            android:translationY="250dp" />
+
+        <ImageButton
+            android:id="@+id/help"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help"
+            android:translationX="15dp"
+            android:translationY="350dp" />
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="408dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/bungee_shade"
+        android:shadowColor="#82B7BD"
+        android:shadowDx="-20"
+        android:shadowDy="-2"
+        android:shadowRadius="20"
+        android:text="Level 1 - Test"
+        android:textColor="@color/purple"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/congratsPanel"
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="134dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#e5e5e5"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="250dp"
+                android:layout_marginEnd="300dp"
+                android:layout_marginBottom="250dp"
+                android:text="Congratulations"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="164dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="318dp"
+                android:layout_marginTop="81dp"
+                android:layout_marginEnd="318dp"
+                android:text="proceed to next level"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gamePanel"
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="90dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="#e5e5e5"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginBottom="40dp"
+                app:layout_constraintBottom_toTopOf="@+id/happyButt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="400dp"
+                    android:layout_height="400dp">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/happy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:id="@+id/angryButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Angry"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sadButt" />
+
+            <Button
+                android:id="@+id/happyButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Happy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/sadButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Sad"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/happyButt" />
+
+            <Button
+                android:id="@+id/surprisedButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Surprised"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/angryButt" />
+
+            <Button
+                android:id="@+id/disgustButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Disgust"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/surprisedButt" />
+
+            <Button
+                android:id="@+id/fearButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Fear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/disgustButt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="327dp"
+        android:layout_height="313dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/front_side_removebg_preview"
+        app:layout_constraintStart_toEndOf="@+id/gamePanel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="575dp"
+        android:layout_height="341dp"
+        android:layout_marginStart="424dp"
+        android:layout_marginBottom="284dp"
+        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+        app:layout_constraintBottom_toBottomOf="@+id/gamePanel"
+        app:layout_constraintStart_toEndOf="@+id/imageView14" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

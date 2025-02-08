@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="forward" type="id"/>
+    <item name="play" type="id"/>
+    <item name="pause" type="id"/>
+    <item name="rewind" type="id"/>
+    <item name="videoView" type="id"/>
+    <item name="view" type="id"/>
+    <item name="help" type="id"/>
+    <item name="feedback" type="id"/>
+    <item name="report" type="id"/>
+    <item name="home_button" type="id"/>
+    <item name="Menubar" type="id"/>
+    <item name="textView2" type="id"/>
+    <item name="textView1" type="id"/>
+</resources>

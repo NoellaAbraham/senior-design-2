@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#86C4CC"
+    tools:context=".Game1Lev2"
+    tools:layout_editor_absoluteX="-322dp"
+    tools:layout_editor_absoluteY="-195dp">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="728dp"
+        android:layout_height="285dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="472dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cloud2" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/Menubar"
+        android:layout_width="90dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="209dp"
+        android:layout_marginBottom="233dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="60dp"
+        android:visibility="visible"
+        app:itemIconTint="@color/Grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home_button"
+            android:translationX="15dp"
+            android:translationY="50dp"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/report"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/report"
+            android:translationX="15dp"
+            android:translationY="150dp" />
+
+        <ImageButton
+            android:id="@+id/feedback"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icons8_feedback_100"
+            android:translationX="15dp"
+            android:translationY="250dp" />
+
+        <ImageButton
+            android:id="@+id/help"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help"
+            android:translationX="15dp"
+            android:translationY="350dp" />
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="532dp"
+        android:fontFamily="@font/bungee_shade"
+        android:shadowColor="#82B7BD"
+        android:shadowDx="-20"
+        android:shadowDy="-2"
+        android:shadowRadius="20"
+        android:text="Level 2"
+        android:textColor="@color/purple"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/cardView16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView16"
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="90dp"
+        app:cardBackgroundColor="#e5e5e5"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ViewFlipper
+                android:id="@+id/viewFlipper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginBottom="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Front side of the flip card -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#e5e5e5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="400dp"
+                            android:layout_height="400dp">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="400dp"
+                                android:layout_height="400dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/human_happy"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Back side of the flip card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/holo_green_light"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:background="#DF7F99"
+                        app:cardBackgroundColor="#DF7F99">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Happy"
+                                android:textColor="@android:color/white"
+                                android:textSize="40sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </ViewFlipper>
+
+            <Button
+                android:id="@+id/happyButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="233dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="105dp"
+                android:layout_marginBottom="37dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Previous"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sadButt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewFlipper" />
+
+            <Button
+                android:id="@+id/sadButt"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="228dp"
+                android:layout_marginBottom="37dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewFlipper"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/proceedButton"
+                android:layout_width="130dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="235dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="297dp"
+                android:backgroundTint="#DF7F99"
+                android:text="Proceed to Test"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/viewFlipper"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="376dp"
+        android:layout_marginBottom="500dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView16"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:srcCompat="@drawable/cloud3" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="359dp"
+        android:layout_height="145dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView16"
+        app:srcCompat="@drawable/cloud3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FED98E"
+    tools:context=".ProgChart2">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="85dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_navigation_view">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/Menubar"
+                android:layout_width="80dp"
+                android:layout_height="458dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/more_round"
+                android:elevation="60dp"
+                android:visibility="visible"
+                app:itemIconTint="@color/Grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+
+                <ImageButton
+                    android:id="@+id/home_button"
+                    android:layout_width="57dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="home_button"
+                    android:elevation="20dp"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="50dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/home_button" />
+
+                <ImageButton
+                    android:id="@+id/report"
+                    android:layout_width="55dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="report"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="150dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/report" />
+
+                <ImageButton
+                    android:id="@+id/feedback"
+                    android:layout_width="53dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="feedback"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="250dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icons8_feedback_100" />
+
+                <ImageButton
+                    android:id="@+id/help"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="help"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="350dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/help" />
+            </com.google.android.material.navigation.NavigationView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="1184dp"
+        android:layout_height="945dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView8"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1846dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/overallScores"
+                    android:layout_width="1017dp"
+                    android:layout_height="217dp"
+                    android:layout_marginStart="94dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="94dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="387dp"
+                        android:layout_height="91dp"
+                        android:fontFamily="@font/bungee_inline"
+                        android:text=" Overall Scores"
+                        android:textAlignment="center"
+                        android:textSize="34sp"
+                        android:translationX="315dp" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="105dp"
+                        android:layout_height="74dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 1"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:translationX="250dp"
+                        android:translationY="80dp" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="105dp"
+                        android:layout_height="74dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 2"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:translationX="450dp"
+                        android:translationY="80dp" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="138dp"
+                        android:layout_height="74dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 3"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:translationX="650dp"
+                        android:translationY="80dp" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="56dp"
+                        android:layout_height="44dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="89 %"
+                        android:textColor="#9C000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:translationX="275dp"
+                        android:translationY="160dp" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="72dp"
+                        android:layout_height="44dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="100 %"
+                        android:textColor="#9C000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:translationX="479dp"
+                        android:translationY="160dp" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="56dp"
+                        android:layout_height="44dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="95 %"
+                        android:textColor="#9C000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:translationX="695dp"
+                        android:translationY="160dp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="1077dp"
+                    android:layout_height="67dp"
+                    android:layout_marginStart="56dp"
+                    android:fontFamily="@font/bungee_inline"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Student's Overall Progress"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="26dp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/bungee_inline"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Games Scores"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/gameScoreChart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/overallScores" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/gameScoreChart"
+                    android:layout_width="1029dp"
+                    android:layout_height="474dp"
+                    android:layout_marginStart="94dp"
+                    android:layout_marginTop="396dp"
+                    android:layout_marginEnd="94dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                    <FrameLayout
+                        android:id="@+id/chart_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/studentName"
+                    android:layout_width="333dp"
+                    android:layout_height="49dp"
+                    android:fontFamily="@font/bungee"
+                    android:text="Maya Jones"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/overallScores"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

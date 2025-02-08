@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FE9DB0"
+    tools:context=".CTDashboard">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="85dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_navigation_view">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/Menubar"
+                android:layout_width="80dp"
+                android:layout_height="458dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/more_round"
+                android:elevation="60dp"
+                android:visibility="visible"
+                app:itemIconTint="@color/Grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+
+                <ImageButton
+                    android:id="@+id/home_button"
+                    android:layout_width="57dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="home_button"
+                    android:elevation="20dp"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="50dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/home_button" />
+
+                <ImageButton
+                    android:id="@+id/report"
+                    android:layout_width="55dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="report"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="150dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/report" />
+
+                <ImageButton
+                    android:id="@+id/feedback"
+                    android:layout_width="53dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="feedback"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="250dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icons8_feedback_100" />
+
+                <ImageButton
+                    android:id="@+id/help"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="help"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="350dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/help" />
+            </com.google.android.material.navigation.NavigationView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="1192dp"
+        android:layout_height="898dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView8"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="898dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="898dp">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="58dp"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Your Students"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="48sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView17"
+                    android:layout_width="800dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="200dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+                    <TableLayout
+                        android:id="@+id/tableLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </TableLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="1279dp"
+        android:layout_height="match_parent"
+        android:background="#9cadce"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="553dp"
+            android:layout_height="669dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginEnd="350dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#A8CBDC">
+
+                <TextView
+                    android:id="@+id/nameLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginEnd="190dp"
+                    android:text="Name"
+                    android:textColor="#4C5F6B"
+                    android:textColorLink="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameLbl" />
+
+
+                <TextView
+                    android:id="@+id/emailLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="195dp"
+                    android:text="Email"
+                    android:textColor="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="10dp"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailLbl" />
+
+                <TextView
+                    android:id="@+id/ageLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="210dp"
+                    android:text="Age"
+                    android:textColor="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+                <EditText
+                    android:id="@+id/editTextAge"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ageLbl" />
+
+                <TextView
+                    android:id="@+id/typeLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="157dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="361dp"
+                    android:text="Type"
+                    android:textColor="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+
+                <Spinner
+                    android:id="@+id/spinnerUserType"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginEnd="150dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/typeLbl" />
+
+                <TextView
+                    android:id="@+id/passLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="165dp"
+                    android:text="Password"
+                    android:textColor="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerUserType" />
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passLbl" />
+
+                <TextView
+                    android:id="@+id/conPassLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="102dp"
+                    android:text="Confirm Password"
+                    android:textColor="#4C5F6B"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+                <EditText
+                    android:id="@+id/editTextTextPassword3"
+                    android:layout_width="234dp"
+                    android:layout_height="45dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/conPassLbl" />
+
+                <Button
+                    android:id="@+id/buttonNext"
+                    android:layout_width="137dp"
+                    android:layout_height="51dp"
+                    android:layout_marginEnd="208dp"
+                    android:background="#4C5F6B"
+                    android:elevation="100dp"
+                    android:text="Register"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="431dp"
+                    android:layout_height="214dp"
+                    android:layout_marginStart="300dp"
+                    android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="431dp"
+                    android:layout_height="214dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonNext" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="566dp"
+            android:layout_height="352dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="400dp"
+            android:backgroundTint="#C17474"
+            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="9dp"
+            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="1402dp"
+            android:layout_height="812dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginEnd="100dp"
+            android:src="@drawable/c22550bde27a98628c20ac03db921a36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

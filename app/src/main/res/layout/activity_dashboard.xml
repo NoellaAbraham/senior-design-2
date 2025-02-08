@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D1D0"
+    tools:context=".Dashboard">
+
+    <!-- Sidebar Navigation -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/Menubar"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:itemIconTint="@color/Grey">
+
+        <!-- Sidebar Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/home_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_button"
+                android:layout_marginTop="16dp" />
+
+            <ImageButton
+                android:id="@+id/report"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/report"
+                android:layout_marginTop="16dp" />
+
+            <ImageButton
+                android:id="@+id/feedback"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icons8_feedback_100"
+                android:layout_marginTop="16dp" />
+
+            <ImageButton
+                android:id="@+id/help"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/help"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+    <!-- Main Content Section -->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/Menubar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="90dp">
+
+            <!-- Game Cards Section -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp">
+
+                <!-- Game 01 Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView9"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="#87CFD8"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.28">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:text="Game 01"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/game01Go"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:text="GO"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Game 02 Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView11"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="#D490DF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView23"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toEndOf="@+id/cardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.28">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:text="Game 02"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/game02Go"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:text="GO"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Game 03 Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView23"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="#FE9DB0"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.28">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:text="Game 03"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/game03Go"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:text="GO"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Progress Charts Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:cardBackgroundColor="#e5e5e5"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView9"
+                    app:layout_constraintWidth_percent="0.9">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <!-- Pie Charts -->
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart1"
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            app:layout_constraintEnd_toStartOf="@+id/pieChart2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.3" />
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart2"
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            app:layout_constraintEnd_toStartOf="@+id/pieChart3"
+                            app:layout_constraintStart_toEndOf="@+id/pieChart1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.3" />
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart3"
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/pieChart2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

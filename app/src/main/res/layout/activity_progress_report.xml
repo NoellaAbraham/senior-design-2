@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FED98E"
+    tools:context=".ProgressReport">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="85dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_navigation_view">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/Menubar"
+                android:layout_width="80dp"
+                android:layout_height="458dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/more_round"
+                android:elevation="60dp"
+                android:visibility="visible"
+                app:itemIconTint="@color/Grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+
+                <ImageButton
+                    android:id="@+id/home_button"
+                    android:layout_width="57dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="home_button"
+                    android:elevation="20dp"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="50dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/home_button" />
+
+                <ImageButton
+                    android:id="@+id/report"
+                    android:layout_width="55dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="report"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="150dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/report" />
+
+                <ImageButton
+                    android:id="@+id/feedback"
+                    android:layout_width="53dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="feedback"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="250dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icons8_feedback_100" />
+
+                <ImageButton
+                    android:id="@+id/help"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="help"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="350dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/help" />
+            </com.google.android.material.navigation.NavigationView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- _________________________________________________________________________ -->
+                <!-- APPLY ANY CHANGES TO the ProgRep AFTER THIS LINE -->
+    <!-- _________________________________________________________________________ -->
+
+    <ScrollView
+        android:layout_width="1180dp"
+        android:layout_height="1017dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView8"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="1178dp"
+                android:layout_height="3088dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/game01"
+                    android:layout_width="700dp"
+                    android:layout_height="250dp"
+                    android:layout_marginStart="94dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="94dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="694dp"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game01wa"
+                            android:layout_width="280dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#87CFD8"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <!--
+                                <TextView
+                                    android:id="@+id/game01averageScore"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Average Score: "
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                                    -->
+
+                                <TextView
+                                    android:id="@+id/textView12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="52dp"
+                                    android:layout_marginTop="28dp"
+                                    android:text="Average Score"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game01CorrectAnswers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="68dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="140dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="/12"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game01tt"
+                            android:layout_width="280dp"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#87CFD8"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/textView14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="61dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="Time Taken"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game01TimeTaken"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="63dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00:00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/game02"
+                    android:layout_width="700dp"
+                    android:layout_height="250dp"
+                    android:layout_marginStart="94dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="94dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game01">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game02tt"
+                            android:layout_width="280dp"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#D490DF"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/textView33"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="61dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="Time Taken"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game02TimeTaken"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="63dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00:00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView33" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game02wa"
+                            android:layout_width="280dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="41dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#D490DF"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/textView37"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="52dp"
+                                    android:layout_marginTop="28dp"
+                                    android:text="Average Score"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game02CorrectAnswers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="68dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+                                <TextView
+                                    android:id="@+id/textView21"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="140dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="/12"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+                                <!--
+                                <TextView
+                                    android:id="@+id/game02averageScore"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Average Score: "
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" /> -->
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/game03"
+                    android:layout_width="700dp"
+                    android:layout_height="250dp"
+                    android:layout_marginStart="94dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="94dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game02">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game03wa"
+                            android:layout_width="280dp"
+                            android:layout_height="186dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#FE9DB0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.333">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <!--
+                                <TextView
+                                    android:id="@+id/game03averageScore"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Average Score: "
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" /> -->
+
+                                <TextView
+                                    android:id="@+id/textView35"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="40dp"
+                                    android:layout_marginTop="28dp"
+                                    android:text="Average Scores"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game03CorrectAnswers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="68dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+                                <TextView
+                                    android:id="@+id/textView22"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="140dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="/4"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/game03tt"
+                            android:layout_width="280dp"
+                            android:layout_height="186dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginBottom="35dp"
+                            app:cardBackgroundColor="#FE9DB0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/textView39"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="61dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="Time Taken"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/game03TimeTaken"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="63dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="00:00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView39" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Game 01"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/game01"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Game 02"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/game02"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/disableGame01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="107dp"
+                    android:text="Disable"
+                    app:layout_constraintStart_toEndOf="@+id/game01"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <Button
+                    android:id="@+id/disableGame02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="107dp"
+                    android:text="Disable"
+                    app:layout_constraintStart_toEndOf="@+id/game02"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+                <Button
+                    android:id="@+id/disableGame03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="102dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="Disable"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="1103dp"
+                    android:layout_height="714dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="64dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView11"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintStart_toStartOf="@id/textView11"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="956dp"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Emotions progress Chart"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game03" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="1103dp"
+                    android:layout_height="714dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="281dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.511"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="46dp"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Games progress Chart"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game03" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:fontFamily="@font/bungee_shade"
+                    android:shadowColor="@color/pink"
+                    android:shadowDx="-20"
+                    android:shadowDy="-2"
+                    android:shadowRadius="20"
+                    android:text="Game 03"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="30sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/game03"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game02" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

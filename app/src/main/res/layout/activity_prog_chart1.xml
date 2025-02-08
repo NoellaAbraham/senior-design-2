@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FED98E"
+    tools:context=".ProgChart">
+
+    <!-- Navigation View -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewNavigation"
+        android:layout_width="85dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_navigation_view">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/Menubar"
+                android:layout_width="80dp"
+                android:layout_height="458dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/more_round"
+                android:elevation="60dp"
+                android:visibility="visible"
+                app:itemIconTint="@color/Grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <ImageButton
+                    android:id="@+id/home_button"
+                    android:layout_width="57dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="home_button"
+                    android:elevation="20dp"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="50dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/home_button" />
+
+                <ImageButton
+                    android:id="@+id/report"
+                    android:layout_width="55dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="report"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="150dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/report" />
+
+                <ImageButton
+                    android:id="@+id/feedback"
+                    android:layout_width="53dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="feedback"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="250dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icons8_feedback_100" />
+
+                <ImageButton
+                    android:id="@+id/help"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/more_round"
+                    android:contentDescription="help"
+                    android:scaleType="fitCenter"
+                    android:translationX="15dp"
+                    android:translationY="350dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/help" />
+            </com.google.android.material.navigation.NavigationView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Scroll View for Content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardViewNavigation"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Main Content Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Container for Overall Scores -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- CardView for Overall Scores -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewOverallScores"
+                    android:layout_width="0dp"
+                    android:layout_height="217dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- TextView for Overall Scores Title -->
+                    <TextView
+                        android:id="@+id/textViewOverallScoresTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/bungee_inline"
+                        android:text="Overall Scores"
+                        android:textAlignment="center"
+                        android:textColor="@color/purple"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- TextViews for Game Scores -->
+                    <TextView
+                        android:id="@+id/textViewGame1Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 1"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewOverallScoresTitle" />
+
+                    <TextView
+                        android:id="@+id/textViewGame2Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 2"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toEndOf="@+id/textViewGame1Title"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewOverallScoresTitle" />
+
+                    <TextView
+                        android:id="@+id/textViewGame3Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Game 3"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toEndOf="@+id/textViewGame2Title"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewOverallScoresTitle" />
+
+                    <!-- TextViews for Game Scores Values -->
+                    <TextView
+                        android:id="@+id/textViewGame1Score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="61 %"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewGame1Title"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewGame1Title" />
+
+                    <TextView
+                        android:id="@+id/textViewGame2Score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="85 %"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewGame2Title"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewGame2Title" />
+
+                    <TextView
+                        android:id="@+id/textViewGame3Score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/chewy"
+                        android:text="95 %"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewGame3Title"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewGame3Title" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Container for Game Scores Chart -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <!-- CardView for Game Scores Chart -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewGameScoresChart"
+                    android:layout_width="0dp"
+                    android:layout_height="474dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewOverallScores">
+
+                    <!-- Placeholder for Chart (if any) -->
+                    <FrameLayout
+                        android:id="@+id/chart_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- TextView for Student Name -->
+            <TextView
+                android:id="@+id/textViewStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/bungee"
+                android:text="Sami Abdallah"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOverallScores" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

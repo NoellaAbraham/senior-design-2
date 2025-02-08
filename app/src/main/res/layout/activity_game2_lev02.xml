@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B996EC"
+    android:visibility="visible"
+    tools:context=".Game2Lev1">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/Menubar"
+        android:layout_width="80dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="209dp"
+        android:background="@drawable/more_round"
+        android:elevation="60dp"
+        android:visibility="visible"
+        app:itemIconTint="@color/Grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"
+
+        >
+
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_width="57dp"
+            android:layout_height="60dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="home_button"
+            android:elevation="20dp"
+            android:scaleType="fitCenter"
+            android:translationX="15dp"
+            android:translationY="50dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/home_button" />
+
+        <ImageButton
+            android:id="@+id/report"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="report"
+            android:scaleType="fitCenter"
+            android:translationX="15dp"
+            android:translationY="150dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/report" />
+
+        <ImageButton
+            android:id="@+id/feedback"
+            android:layout_width="53dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="feedback"
+            android:scaleType="fitCenter"
+            android:translationX="15dp"
+            android:translationY="250dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/icons8_feedback_100" />
+
+        <ImageButton
+            android:id="@+id/help"
+            android:layout_width="51dp"
+            android:layout_height="57dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="help"
+            android:scaleType="fitCenter"
+            android:translationX="15dp"
+            android:translationY="350dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/help" />
+    </com.google.android.material.navigation.NavigationView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="1200dp"
+        android:layout_height="885dp"
+        app:layout_constraintStart_toEndOf="@+id/Menubar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:fontFamily="@font/bungee_shade"
+            android:shadowColor="@color/pink"
+            android:shadowDx="-20"
+            android:shadowDy="-2"
+            android:shadowRadius="20"
+            android:text="Scared"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="48sp"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="805dp"
+            android:layout_height="490dp"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="170dp"
+            android:background="@drawable/more_round"
+            android:elevation="60dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="654dp"
+            android:layout_height="376dp"
+            android:layout_marginStart="261dp"
+            android:layout_marginTop="215dp"
+            android:elevation="70dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/rewind"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="rewind"
+            android:elevation="60dp"
+            android:scaleType="fitCenter"
+            android:translationX="280dp"
+            android:translationY="600dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/rewind" />
+
+        <ImageButton
+            android:id="@+id/pause"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="pause"
+            android:elevation="60dp"
+            android:scaleType="fitCenter"
+            android:translationX="500dp"
+            android:translationY="600dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/pause" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="play"
+            android:elevation="60dp"
+            android:scaleType="fitCenter"
+            android:translationX="605dp"
+            android:translationY="600dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/play_button" />
+
+        <ImageButton
+            android:id="@+id/forward"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/more_round"
+            android:contentDescription="forward"
+            android:elevation="60dp"
+            android:scaleType="fitCenter"
+            android:translationX="850dp"
+            android:translationY="600dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/forward" />
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="869dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="228dp"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/bungee_inline"
+            android:outlineAmbientShadowColor="@color/beige"
+            android:shadowColor="@color/pink"
+            android:shadowDx="-20"
+            android:shadowRadius="1"
+            android:text="Understand Emotions"
+
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="48sp"
+            android:typeface="monospace"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="78dp"
+            android:layout_height="80dp"
+            android:rotation="-34"
+            android:rotationY="2"
+            android:translationX="100dp"
+            android:translationY="30dp"
+            app:srcCompat="@drawable/white_flower" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="70dp"
+            android:layout_height="75dp"
+            android:rotation="26"
+            android:translationX="1100dp"
+            android:translationY="500dp"
+            app:srcCompat="@drawable/white_flower" />
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="58dp"
+            android:layout_height="53dp"
+            android:rotation="-17"
+            android:translationX="110dp"
+            android:translationY="500dp"
+            app:srcCompat="@drawable/white_flower" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="53dp"
+            android:layout_height="48dp"
+            android:rotation="6"
+            android:translationX="900dp"
+            android:translationY="100dp"
+            app:srcCompat="@drawable/white_flower" />
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="58dp"
+            android:layout_height="53dp"
+            android:rotation="-13"
+            android:translationX="1200dp"
+            android:translationY="300dp"
+            app:srcCompat="@drawable/white_flower" />
+
+        <Button
+            android:id="@+id/continueBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1020dp"
+            android:layout_marginTop="400dp"
+            android:text="CONTINUE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

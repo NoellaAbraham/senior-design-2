@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="#FAA4BD"
+    android:layout_height="match_parent"
+    tools:context=".Game3Lev3">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/Menubar"
+        android:layout_width="90dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="209dp"
+        android:layout_marginBottom="233dp"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="60dp"
+        android:visibility="visible"
+        app:itemIconTint="@color/Grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="55dp"
+        android:layout_height="59dp"
+        android:background="@drawable/more_round"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home_button"
+        android:translationX="15dp"
+        android:translationY="50dp"
+        android:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/report"
+        android:layout_width="55dp"
+        android:layout_height="59dp"
+        android:background="@drawable/more_round"
+        android:scaleType="fitCenter"
+        android:src="@drawable/report"
+        android:translationX="15dp"
+        android:translationY="150dp" />
+
+    <ImageButton
+        android:id="@+id/feedback"
+        android:layout_width="55dp"
+        android:layout_height="59dp"
+        android:background="@drawable/more_round"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icons8_feedback_100"
+        android:translationX="15dp"
+        android:translationY="250dp" />
+
+        <ImageButton
+            android:id="@+id/help"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:background="@drawable/more_round"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help"
+            android:translationX="15dp"
+            android:translationY="350dp" />
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="650dp"
+        android:layout_height="459dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="300dp"
+        android:translationY="150dp"
+        app:cardBackgroundColor="#e5e5e5"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/star5"
+        app:layout_constraintStart_toEndOf="@+id/star3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/star8"
+                android:layout_width="82dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:rotation="17"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/star" />
+
+            <Button
+                android:id="@+id/buttonFaceDetect"
+                android:layout_width="278dp"
+                android:layout_height="59dp"
+                android:backgroundTint="#FEB0BD"
+                android:text="Open Emotion Detection"
+                android:textColor="#7C414F"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/skip_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/game3_optional_activity_desc" />
+
+            <TextView
+                android:id="@+id/game3_optional_activity_desc"
+                android:layout_width="571dp"
+                android:layout_height="187dp"
+                android:layout_marginTop="92dp"
+                android:text="In this optional activity, you will be asked to show an emotion and our AI emotion recognition model will guess which emotion that is when you press the button! Please keep in mind that the AI model may not make accurate guesses all the time."
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/skip_button"
+                android:layout_width="95dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#F44336"
+                android:text="Skip"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonFaceDetect" />
+
+            <ImageView
+                android:id="@+id/star9"
+                android:layout_width="73dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginBottom="48dp"
+                android:rotation="26"
+                android:rotationY="180"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonFaceDetect"
+                app:srcCompat="@drawable/star" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/star1"
+        android:layout_width="124dp"
+        android:layout_height="96dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="48dp"
+        android:rotation="26"
+        android:rotationY="180"
+        app:layout_constraintBottom_toTopOf="@+id/star5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star2"
+        android:layout_width="149dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="60dp"
+        android:rotation="17"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star3"
+        android:layout_width="180dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:rotation="-17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toTopOf="@+id/star1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star5"
+        android:layout_width="173dp"
+        android:layout_height="173dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="76dp"
+        android:rotation="43"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star6"
+        android:layout_width="117dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="144dp"
+        app:layout_constraintBottom_toTopOf="@+id/star5"
+        app:layout_constraintStart_toEndOf="@+id/Menubar"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/game3_optional_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/bungee_inline"
+        android:outlineAmbientShadowColor="@color/beige"
+        android:shadowColor="@color/pink"
+        android:shadowDx="-20"
+        android:shadowRadius="1"
+        android:text="MIMIC THE EMOTION"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="70sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/star4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/star3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

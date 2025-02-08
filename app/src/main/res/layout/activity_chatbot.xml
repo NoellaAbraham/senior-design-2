@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#B19CD9"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
+
+        <!-- Menu Icon -->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Chatbot Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHATBOT"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#9571D9"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <!-- Chat Window -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/chat_window_background"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/message_input_background"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/messageInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Ask any Questions"
+            android:padding="12dp"
+            android:background="@android:color/transparent"
+            android:textColor="#9571D9"
+            android:textStyle="bold"
+            android:textSize="17sp"/>
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:backgroundTint="#9571D9"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Congratulations">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="1279dp"
+        android:layout_height="812dp"
+        android:background="#9cadce"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="695dp"
+            android:layout_height="317dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="350dp"
+            android:layout_marginBottom="50dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#A8CBDC">
+
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="112dp"
+                    android:layout_marginEnd="251dp"
+                    android:layout_marginBottom="10dp"
+
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/bungee_inline"
+                    android:outlineAmbientShadowColor="@color/beige"
+                    android:shadowColor="#7DADB3"
+                    android:shadowDx="-20"
+                    android:shadowRadius="1"
+                    android:text="HORAYY!! YOU DID IT!"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple"
+                    android:textSize="40sp"
+                    android:typeface="monospace"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/cardView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonNext"
+                    android:layout_width="137dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="296dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="#4C5F6B"
+                    android:elevation="100dp"
+                    android:shadowColor="#A89C9C"
+                    android:text="Next Level"
+                    android:textColor="#FFFFFF"
+                    android:textColorLink="@color/pink"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="436dp"
+                    android:layout_height="226dp"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginEnd="44dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="372dp"
+                    android:layout_height="193dp"
+                    android:layout_marginStart="246dp"
+                    android:layout_marginBottom="154dp"
+                    android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="1402dp"
+            android:layout_height="812dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginEnd="100dp"
+            android:src="@drawable/c22550bde27a98628c20ac03db921a36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="566dp"
+            android:layout_height="352dp"
+            android:layout_marginBottom="13dp"
+            android:backgroundTint="#C17474"
+            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/cardView2" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="641dp"
+            android:layout_height="247dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+            app:srcCompat="@drawable/kids_jumping" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

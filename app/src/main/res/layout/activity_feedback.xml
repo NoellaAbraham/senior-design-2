@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_loginbg">
 
-    <ImageView
-        android:id="@+id/cloudLeft"
-        android:layout_width="327dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/cloud2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/cloudRight"
-        android:layout_width="288dp"
-        android:layout_height="188dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/cloud3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+    <!-- Title -->
     <LinearLayout
         android:id="@+id/titleLayout"
         android:layout_width="wrap_content"
@@ -65,26 +44,26 @@
             android:textSize="64sp" />
     </LinearLayout>
 
-
+    <!-- Feedback Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/loginCard"
+        android:id="@+id/feedbackCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="#FFFFFF"
         app:cardCornerRadius="24dp"
         app:cardElevation="12dp"
-        android:backgroundTint="#E8F0FF"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.90">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:padding="24dp">
 
             <TextView
@@ -96,82 +75,59 @@
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="15"
-                android:text="LOGIN"
+                android:text="FEEDBACK"
                 android:textColor="#FFFFFF"
                 android:textSize="54sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/feedbackName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/message_input_background"
-                android:hint="Username"
-                android:paddingHorizontal="36dp"
+                android:hint="Name"
+                android:padding="16dp"
                 android:textColorHint="#AAAAAA"
-                android:textSize="30sp" />
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/feedbackEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/message_input_background"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textColorHint="#AAAAAA"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/feedbackMessage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/message_input_background"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="36dp"
+                android:gravity="top"
+                android:hint="What can we improve"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:padding="16dp"
                 android:textColorHint="#AAAAAA"
-                android:textSize="30sp" />
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/submitButton"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:background="@drawable/gradient_loginbg"
-                android:text="LOGIN"
+                android:text="SUBMIT"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New User? |"
-                    android:textColor="#888888"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/button4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:text=" Sign Up here"
-                    android:textColor="#2986F7"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/footerImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:contentDescription="Footer image"
-        android:scaleType="fitXY"
-        android:src="@drawable/kids_jumping"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginCard" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

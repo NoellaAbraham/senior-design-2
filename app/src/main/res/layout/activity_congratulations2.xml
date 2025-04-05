@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,143 +8,161 @@
     android:layout_height="match_parent"
     tools:context=".Congratulations2">
 
+    <!-- Main background container with a neutral background -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="1279dp"
-        android:layout_height="812dp"
+        android:id="@+id/backgroundContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#9cadce"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
+        <!-- Top banner ImageView (15% of height) -->
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Central CardView for congratulatory content -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="695dp"
-            android:layout_height="317dp"
-            android:layout_marginStart="350dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="350dp"
-            android:layout_marginBottom="50dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:cardCornerRadius="30dp"
             app:cardElevation="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/imageView4"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.39"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/imageView9"
+            app:layout_constraintWidth_percent="0.55">
 
+            <!-- Inner ConstraintLayout inside CardView -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#A8CBDC">
 
-
+                <!-- Congratulatory Text centered at the top -->
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="656dp"
-                    android:layout_height="108dp"
-                    android:layout_marginStart="253dp"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="251dp"
-                    android:layout_marginBottom="10dp"
-
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
                     android:elegantTextHeight="true"
                     android:fontFamily="@font/bungee_inline"
-                    android:outlineAmbientShadowColor="@color/beige"
                     android:shadowColor="#7DADB3"
                     android:shadowDx="-20"
                     android:shadowRadius="1"
-                    android:text="CONGRATULATIONS!!                               YOU HAVE COMPLETED THE GAME!"
+                    android:text="CONGRATULATIONS!! YOU HAVE COMPLETED THE GAME!"
                     android:textAlignment="center"
                     android:textColor="@color/purple"
                     android:textSize="35sp"
                     android:typeface="monospace"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toTopOf="@+id/cardView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.503"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- "To Dashboard" Button centered at the bottom -->
                 <Button
                     android:id="@+id/buttonNext"
-                    android:layout_width="135dp"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="296dp"
-                    android:layout_marginBottom="32dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:background="#4C5F6B"
                     android:elevation="100dp"
                     android:shadowColor="#A89C9C"
                     android:text="To Dashboard"
                     android:textColor="#FFFFFF"
-                    android:textColorLink="@color/pink"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <!-- Left ImageView inside CardView -->
                 <ImageView
                     android:id="@+id/imageView12"
-                    android:layout_width="436dp"
-                    android:layout_height="226dp"
-                    android:layout_marginTop="155dp"
-                    android:layout_marginEnd="44dp"
-                    android:elevation="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="8dp"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-                    app:layout_constraintEnd_toStartOf="@+id/buttonNext"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toTopOf="@id/buttonNext"
+                    app:layout_constraintDimensionRatio="1.93:1"
+                    app:layout_constraintEnd_toStartOf="@id/imageView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView1"
+                    app:layout_constraintWidth_percent="0.45" />
 
+                <!-- Right ImageView inside CardView -->
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="372dp"
-                    android:layout_height="193dp"
-                    android:layout_marginStart="246dp"
-                    android:layout_marginBottom="154dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="8dp"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView12" />
-
+                    app:layout_constraintBottom_toTopOf="@id/buttonNext"
+                    app:layout_constraintDimensionRatio="1.93:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@id/textView1"
+                    app:layout_constraintWidth_percent="0.45" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Background Image filling remaining space below the CardView -->
+
+        <!-- Right-side ImageView positioned to the right of CardView2 -->
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="1402dp"
-            android:layout_height="812dp"
-            android:layout_marginStart="-1dp"
-            android:layout_marginEnd="100dp"
+            android:layout_width="1601dp"
+            android:layout_height="473dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/c22550bde27a98628c20ac03db921a36"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+            app:layout_constraintTop_toBottomOf="@id/cardView2" />
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="566dp"
-            android:layout_height="352dp"
-            android:layout_marginBottom="13dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
             android:backgroundTint="#C17474"
+            android:scaleType="fitCenter"
             android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
-            app:layout_constraintStart_toEndOf="@+id/cardView2" />
+            app:layout_constraintBottom_toTopOf="@id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardView2"
+            app:layout_constraintTop_toTopOf="@id/cardView2"
+            app:layout_constraintWidth_percent="0.3" />
 
+        <!-- Bottom ImageView below CardView2 aligned with its end -->
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="491dp"
-            android:layout_height="193dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="100dp"
-            app:layout_constraintEnd_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:srcCompat="@drawable/kids_jumping2" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="92dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/kids_jumping2"
+            app:layout_constraintEnd_toEndOf="@id/cardView2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/cardView2"
+            app:layout_constraintTop_toBottomOf="@id/cardView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

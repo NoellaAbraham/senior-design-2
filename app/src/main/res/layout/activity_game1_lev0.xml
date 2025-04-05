@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,277 +8,261 @@
     android:layout_height="match_parent"
     android:background="#86C4CC"
     android:foregroundTint="#9E2828"
-    tools:context=".Game1Lev0"
-    tools:layout_editor_absoluteX="-322dp"
-    tools:layout_editor_absoluteY="-195dp">
+    tools:context=".Game1Lev0">
 
+    <!-- Sidebar Navigation using percent constraints -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/Menubar"
-        android:layout_width="90dp"
-        android:layout_height="458dp"
-        android:layout_marginTop="209dp"
-        android:layout_marginBottom="233dp"
-        android:background="@drawable/rounded_corner_navigation_view"
-        android:elevation="60dp"
-        android:visibility="visible"
-        app:itemIconTint="@color/Grey"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHeight_percent="0.60"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="60dp"
+        app:itemIconTint="@color/Grey">
+        <!-- Instead of using translationX/Y, arrange buttons in a vertical chain -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingVertical="8dp">
 
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+            <ImageButton
+                android:id="@+id/home_button"
+                android:layout_width="98dp"
+                android:layout_height="86dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Home"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_button" />
 
+            <ImageButton
+                android:id="@+id/report"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Report"
+                android:scaleType="fitCenter"
+                android:src="@drawable/report" />
+            <ImageButton
+                android:id="@+id/feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icons8_feedback_100"
+                android:contentDescription="Feedback" />
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home_button"
-            android:translationX="15dp"
-            android:translationY="50dp"
-            android:visibility="visible" />
-
-        <ImageButton
-            android:id="@+id/report"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/report"
-            android:translationX="15dp"
-            android:translationY="150dp" />
-
-        <ImageButton
-            android:id="@+id/feedback"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/icons8_feedback_100"
-            android:translationX="15dp"
-            android:translationY="250dp" />
-
-        <ImageButton
-            android:id="@+id/help"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/help"
-            android:translationX="15dp"
-            android:translationY="350dp" />
-
+            <ImageButton
+                android:id="@+id/help"
+                android:layout_width="102dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Help"
+                android:scaleType="fitCenter"
+                android:src="@drawable/help" />
+        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
+    <!-- Title TextView ("Level 0") centered horizontally -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="536dp"
-        android:layout_marginTop="36dp"
+        android:text="Level 0"
+        android:textSize="50sp"
         android:fontFamily="@font/bungee_shade"
+        android:textColor="@color/purple"
         android:shadowColor="#82B7BD"
         android:shadowDx="-20"
         android:shadowDy="-2"
         android:shadowRadius="20"
-        android:text="Level 0"
-        android:textColor="@color/purple"
-        android:textSize="50sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/cardView16"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintStart_toEndOf="@id/Menubar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="10dp"/>
 
+    <!-- Cloud ImageView (cloud1) on the left bottom -->
     <ImageView
         android:id="@+id/cloud1"
-        android:layout_width="486dp"
-        android:layout_height="239dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+        android:scaleType="fitCenter"
+        app:layout_constraintWidth_percent="0.35"
+        app:layout_constraintDimensionRatio="486:239"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="700dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="8dp"/>
 
+    <!-- Main CardView (cardView13) for central content -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView13"
-        android:layout_width="825dp"
-        android:layout_height="594dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="90dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.65"
+        app:layout_constraintHeight_percent="0.70"
         app:cardBackgroundColor="#e5e5e5"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Menubar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundTint="#00BA2222">
 
+            <!-- Inner CardView for Mood Icons (cardView10) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView10"
-                android:layout_width="724dp"
-                android:layout_height="116dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.85"
+                app:layout_constraintHeight_percent="0.15"
+                android:layout_marginTop="5dp">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="27dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/sad"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
+                    <!-- Mood Icons arranged horizontally -->
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintWidth_percent="0.15"
                         android:src="@drawable/angry"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.312" />
-
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
                     <ImageButton
                         android:id="@+id/imageButton2"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintWidth_percent="0.15"
                         android:src="@drawable/happy"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
+                        android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.312" />
-
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/imageButton" />
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintWidth_percent="0.15"
+                        android:src="@drawable/sad"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/imageButton2" />
                     <ImageButton
                         android:id="@+id/imageButton4"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="26dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintWidth_percent="0.15"
                         android:src="@drawable/surprised"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-                        app:layout_constraintTop_toTopOf="parent" />
-
+                        app:layout_constraintStart_toEndOf="@id/imageButton3" />
                     <ImageButton
                         android:id="@+id/imageButton5"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintWidth_percent="0.15"
                         android:src="@drawable/disgust"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toEndOf="@id/imageButton4" />
 
                     <ImageButton
                         android:id="@+id/imageButton6"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_marginStart="144dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="29dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_width="123dp"
+                        android:layout_height="73dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/fear"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-                        app:layout_constraintTop_toTopOf="parent" />
-
+                        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.15" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Second Inner CardView for additional content -->
             <androidx.cardview.widget.CardView
-                android:layout_width="400dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="51dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginBottom="54dp"
-                android:elevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/cardViewSecond"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/cardView10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView10">
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent="0.80"
+                app:layout_constraintHeight_percent="0.50"
+                android:layout_marginTop="8dp">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="98dp"
-                        android:layout_marginTop="41dp"
-                        android:layout_marginEnd="98dp"
-                        android:layout_marginBottom="40dp"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
                         android:src="@drawable/angry"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- "next level" Button placed to the right of the main card -->
+
+    <!-- Additional Cloud ImageView positioned on the right -->
+
     <Button
         android:id="@+id/scaredans"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="424dp"
+        android:layout_width="93dp"
+        android:layout_height="58dp"
+        android:layout_margin="5dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="4dp"
         android:background="@color/Grey"
         android:backgroundTint="@color/Grey"
-        android:text="next level"
+        android:text="Next Level"
         android:textColor="#000000"
         app:iconTint="@color/Grey"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView13" />
+        app:layout_constraintStart_toEndOf="@id/cardView13" />
 
     <ImageView
         android:id="@+id/cloud"
-        android:layout_width="639dp"
-        android:layout_height="237dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.40"
+        app:layout_constraintDimensionRatio="639:237"
+        android:layout_margin="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

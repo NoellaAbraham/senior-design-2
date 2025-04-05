@@ -1,11 +1,14 @@
 package com.example.sd2
 
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import kotlinx.coroutines.Dispatchers
@@ -25,10 +28,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val cloudLeft = findViewById<ImageView>(R.id.cloudLeft)
+        val cloudRight = findViewById<ImageView>(R.id.cloudRight)
+
+        val cloudFloat = AnimationUtils.loadAnimation(this, R.anim.cloud_float)
+
+        cloudLeft.startAnimation(cloudFloat)
+        cloudRight.startAnimation(cloudFloat)
+
+        Log.d("CloudDebug", "Animation started on clouds")
+
+
         val editTextUsername = findViewById<EditText>(R.id.editTextText)
         val editTextPassword = findViewById<EditText>(R.id.editTextTextPassword)
         val buttonLogin = findViewById<Button>(R.id.button3)
-        val buttonReg = findViewById<Button>(R.id.button4)
+        val buttonReg = findViewById<TextView>(R.id.button4)
 
         buttonLogin.setOnClickListener {
             val username = editTextUsername.text.toString().trim()

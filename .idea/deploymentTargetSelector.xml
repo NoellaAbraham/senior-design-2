@@ -7,7 +7,18 @@
       </SelectionState>
       <SelectionState runConfigName="MainActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-02-03T19:45:02.610129100Z">
+        <DropdownSelection timestamp="2025-04-04T18:35:44.514337100Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Oteeto_API_33.avd" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="homepage">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-02-25T07:20:38.660974800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Pixel_Tablet_API_30.avd" />
@@ -16,23 +27,12 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="Resources">
+      <SelectionState runConfigName="Game1Lev2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ResourcesActivity">
+      <SelectionState runConfigName="FeedbackActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-02-04T16:37:50.645278100Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Pixel_Tablet_API_30.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="DoctorsAppointment">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-02-05T08:19:40.517739500Z">
+        <DropdownSelection timestamp="2025-04-03T05:34:20.054851300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Pixel_Tablet_API_30.avd" />
@@ -43,7 +43,7 @@
       </SelectionState>
       <SelectionState runConfigName="Chatbot">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-02-05T08:19:57.577704800Z">
+        <DropdownSelection timestamp="2025-04-03T08:39:14.742834900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Pixel_Tablet_API_30.avd" />

@@ -1,272 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#86C4CC"
-    tools:context=".Game1Lev1"
-    tools:layout_editor_absoluteX="-322dp"
-    tools:layout_editor_absoluteY="-195dp">
+    tools:context=".Game1Lev1">
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="600dp"
-        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Sidebar Navigation (left side, ~10% width) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/Menubar"
-        android:layout_width="90dp"
-        android:layout_height="458dp"
-        android:layout_marginTop="209dp"
-        android:layout_marginBottom="233dp"
-        android:background="@drawable/rounded_corner_navigation_view"
-        android:elevation="60dp"
-        android:visibility="visible"
-        app:itemIconTint="@color/Grey"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.10"
+        app:layout_constraintHeight_percent="1.0"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_corner_navigation_view"
+        android:elevation="8dp"
+        app:itemIconTint="@color/Grey">
 
+        <!-- Use a vertical LinearLayout to stack your ImageButtons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="94dp">
 
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home_button"
-            android:translationX="15dp"
-            android:translationY="50dp"
-            android:visibility="visible" />
+            <ImageButton
+                android:id="@+id/home_button"
+                android:layout_width="100dp"
+                android:layout_height="106dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Home"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_button" />
 
-        <ImageButton
-            android:id="@+id/report"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/report"
-            android:translationX="15dp"
-            android:translationY="150dp" />
+            <ImageButton
+                android:id="@+id/report"
+                android:layout_width="102dp"
+                android:layout_height="108dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Report"
+                android:scaleType="fitCenter"
+                android:src="@drawable/report" />
 
-        <ImageButton
-            android:id="@+id/feedback"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/icons8_feedback_100"
-            android:translationX="15dp"
-            android:translationY="250dp" />
+            <ImageButton
+                android:id="@+id/feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icons8_feedback_100"
+                android:contentDescription="Feedback" />
 
-        <ImageButton
-            android:id="@+id/help"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:background="@drawable/more_round"
-            android:scaleType="fitCenter"
-            android:src="@drawable/help"
-            android:translationX="15dp"
-            android:translationY="350dp" />
+            <ImageButton
+                android:id="@+id/help"
+                android:layout_width="98dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/more_round"
+                android:contentDescription="Help"
+                android:scaleType="fitCenter"
+                android:src="@drawable/help" />
 
+        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
+    <!-- Cloud in top-right corner -->
+    <ImageView
+        android:id="@+id/cloud_top_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.35"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Title at the top center -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/levelTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="516dp"
-        android:layout_marginTop="44dp"
+        android:text="LEVEL 1"
+        android:textSize="42sp"
+        android:textColor="@color/purple"
         android:fontFamily="@font/bungee_shade"
         android:shadowColor="#82B7BD"
         android:shadowDx="-20"
         android:shadowDy="-2"
         android:shadowRadius="20"
-        android:text="Level 1"
-        android:textColor="@color/purple"
-        android:textSize="50sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Menubar"
+        app:layout_constraintEnd_toStartOf="@id/cloud_top_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="32dp"/>
 
+    <!-- Main Card in the center (~65% width, ~60% height) -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView15"
-        android:layout_width="800dp"
-        android:layout_height="600dp"
-        android:layout_marginTop="166dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginBottom="90dp"
-        app:cardBackgroundColor="#e5e5e5"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/centerCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.65"
+        app:layout_constraintHeight_percent="0.60"
+        app:layout_constraintStart_toEndOf="@id/Menubar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/levelTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="16dp"
+        android:backgroundTint="#FFFFFF">
 
+        <!-- Inner layout to hold the image & Prev/Next buttons -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-            <ViewFlipper
-                android:id="@+id/viewFlipper"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginBottom="150dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <!-- Center Image (face) -->
+            <ImageView
+                android:id="@+id/faceImage"
+                android:layout_width="384dp"
+                android:layout_height="361dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/happy"
+                app:layout_constraintBottom_toTopOf="@+id/buttonBar"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
 
-                <!-- Front side of the flip card -->
-                <LinearLayout
+            <!-- Button container at bottom -->
+            <LinearLayout
+                android:id="@+id/buttonBar"
+                android:layout_width="801dp"
+                android:layout_height="79dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <Button
+                    android:id="@+id/prevButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#e5e5e5"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_marginRight="32dp"
+                    android:backgroundTint="#DF7F99"
+                    android:text="Previous"
+                    android:textColor="@android:color/white" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="400dp"
-                            android:layout_height="400dp">
-
-                            <ImageView
-                                android:id="@+id/imageView2"
-                                android:layout_width="400dp"
-                                android:layout_height="400dp"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/happy"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <!-- Back side of the flip card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_light"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="400dp"
-                        android:layout_height="400dp"
-                        android:background="#DF7F99"
-                        app:cardBackgroundColor="#DF7F99">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Happy"
-                                android:textColor="@android:color/white"
-                                android:textSize="40sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-            </ViewFlipper>
-
-            <Button
-                android:id="@+id/happyButt"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="233dp"
-                android:layout_marginTop="43dp"
-                android:layout_marginEnd="105dp"
-                android:layout_marginBottom="37dp"
-                android:backgroundTint="#DF7F99"
-                android:text="Previous"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/sadButt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewFlipper" />
-
-            <Button
-                android:id="@+id/sadButt"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="43dp"
-                android:layout_marginEnd="228dp"
-                android:layout_marginBottom="37dp"
-                android:backgroundTint="#DF7F99"
-                android:text="Next"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewFlipper"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                android:id="@+id/proceedButton"
-                android:layout_width="130dp"
-                android:layout_height="68dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="235dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginBottom="297dp"
-                android:backgroundTint="#DF7F99"
-                android:text="Proceed to Test"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/viewFlipper"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#DF7F99"
+                    android:text="Next"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="327dp"
-        android:layout_height="313dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="68dp"
-        android:src="@drawable/front_side_removebg_preview"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="575dp"
-        android:layout_height="341dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="108dp"
-        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

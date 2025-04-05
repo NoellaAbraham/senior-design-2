@@ -43,10 +43,10 @@
       </SelectionState>
       <SelectionState runConfigName="Chatbot">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-04-03T08:39:14.742834900Z">
+        <DropdownSelection timestamp="2025-04-05T20:13:07.817115500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Pixel_Tablet_API_30.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\NOELLA ABRAHAM\.android\avd\Oteeto_API_33.avd" />
             </handle>
           </Target>
         </DropdownSelection>

@@ -3,17 +3,18 @@ package com.example.sd2
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
-import android.widget.VideoView
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.concurrent.TimeUnit
 
 class Game2Lev14 : AppCompatActivity() {
     private lateinit var videoView: VideoView
@@ -22,11 +23,19 @@ class Game2Lev14 : AppCompatActivity() {
     private lateinit var angryButton: Button
     private lateinit var scaredButton: Button
     private lateinit var sadButton: Button
+    private lateinit var timeTakenText: TextView
+    private lateinit var triesText: TextView
 
     private var mistakes = 0
+    private var secondsElapsed = 0
+    private val handler = Handler(Looper.getMainLooper())
+    private lateinit var runnable: Runnable
 
     private var startTime: Long = 0
     private var endTime: Long = 0
+
+    private var isCorrect = false
+    private var isVideoCompleted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,56 +46,39 @@ class Game2Lev14 : AppCompatActivity() {
         angryButton = findViewById(R.id.angry_ans)
         scaredButton = findViewById(R.id.scared_ans)
         sadButton = findViewById(R.id.sad_ans)
+        timeTakenText = findViewById(R.id.timeTaken)
+        triesText = findViewById(R.id.triesText)
+
+        startTimer()
 
         val offlineUri: Uri = Uri.parse("android.resource://$packageName/${R.raw.scared_lev1}")
         videoView.setVideoURI(offlineUri)
 
         setupMediaControls()
 
-        val imageButton5 = findViewById<ImageButton>(R.id.home_button)
-
         happyButton.setOnClickListener { checkAnswer("happy") }
         angryButton.setOnClickListener { checkAnswer("angry") }
         scaredButton.setOnClickListener { checkAnswer("scared") }
         sadButton.setOnClickListener { checkAnswer("sad") }
 
-        imageButton5.setOnClickListener {
-
-            val intent = Intent(this, Dashboard::class.java)
-            startActivity(intent)
-
-        }
-
         videoView.setOnCompletionListener {
-            val intent = Intent(this, Congratulations::class.java)
-            intent.putExtra("CURRENT_LEVEL", "Game2Lev14")
-            startActivity(intent)
-
-            saveScoreToDatabase()
-
-
-
-            val progress = 10;
-            val userID = (application as MyApp).userID
-
-            saveProgressToDatabase(userID, 2, 10, progress)
-            finish()
-
+            isVideoCompleted = true
+            if (isCorrect) {
+                stopTimer()
+                goToCongratulations()
+            }
         }
 
+        startTime = System.currentTimeMillis()
     }
 
     private fun setupMediaControls() {
         findViewById<ImageButton>(R.id.play).setOnClickListener {
-            if (!videoView.isPlaying) {
-                videoView.start()
-            }
+            if (!videoView.isPlaying) videoView.start()
         }
 
         findViewById<ImageButton>(R.id.pause).setOnClickListener {
-            if (videoView.isPlaying) {
-                videoView.pause()
-            }
+            if (videoView.isPlaying) videoView.pause()
         }
 
         findViewById<ImageButton>(R.id.rewind).setOnClickListener {
@@ -100,82 +92,108 @@ class Game2Lev14 : AppCompatActivity() {
 
     private fun checkAnswer(selectedOption: String) {
         val correctOption = getCorrectOptionFromRawFileName()
-        Log.d("Game2Lev1", "Correct option: $correctOption, Selected option: $selectedOption")
-
-
+        Log.d("Game2Lev14", "Correct: $correctOption, Selected: $selectedOption")
 
         if (selectedOption == correctOption) {
-            // Set the selected button to green
-            setOtherButtonsGray(selectedOption)
+            isCorrect = true
 
-            val greenColor = 0xFF00FF00.toInt() // Green color
+            // Highlight correct in green
+            val greenColor = 0xFF00FF00.toInt()
             when (selectedOption) {
                 "happy" -> happyButton.setBackgroundColor(greenColor)
                 "angry" -> angryButton.setBackgroundColor(greenColor)
                 "scared" -> scaredButton.setBackgroundColor(greenColor)
                 "sad" -> sadButton.setBackgroundColor(greenColor)
             }
-            // Set other buttons to gray
+
+            setOtherButtonsGray(selectedOption)
+
+            if (isVideoCompleted) {
+                stopTimer()
+                goToCongratulations()
+            }
 
         } else {
-            // Show toast message to try again
+            mistakes++
+            triesText.text = "No. of tries: $mistakes"
             Toast.makeText(this, "Try again!", Toast.LENGTH_SHORT).show()
-            mistakes++;
         }
     }
 
+    private fun setOtherButtonsGray(correct: String) {
+        val gray = 0xFFCCCCCC.toInt()
+        if (correct != "happy") happyButton.setBackgroundColor(gray)
+        if (correct != "angry") angryButton.setBackgroundColor(gray)
+        if (correct != "scared") scaredButton.setBackgroundColor(gray)
+        if (correct != "sad") sadButton.setBackgroundColor(gray)
+    }
+
+    private fun startTimer() {
+        runnable = object : Runnable {
+            override fun run() {
+                secondsElapsed++
+                val timeStr = String.format(
+                    "Time: %02d:%02d",
+                    TimeUnit.SECONDS.toMinutes(secondsElapsed.toLong()),
+                    secondsElapsed % 60
+                )
+                timeTakenText.text = timeStr
+                handler.postDelayed(this, 1000)
+            }
+        }
+        handler.post(runnable)
+    }
+
+    private fun stopTimer() {
+        handler.removeCallbacks(runnable)
+    }
+
+    private fun goToCongratulations() {
+        val intent = Intent(this, Game2Lev2::class.java)
+        intent.putExtra("CURRENT_LEVEL", "Game2Lev14")
+        startActivity(intent)
+
+        saveScoreToDatabase()
+
+        val userID = (application as MyApp).userID
+        saveProgressToDatabase(userID, 2, 10, 10)
+        finish()
+    }
+
     private fun saveScoreToDatabase() {
-
         endTime = System.currentTimeMillis()
-        val timeTaken = endTime - startTime
-
-        val minutes = (timeTaken / 1000) / 60
-        val seconds = (timeTaken / 1000) % 60
-
-        // Format time as mm:ss
-        val formattedTime = String.format("%02d:%02d", minutes, seconds)
+        val totalTimeMillis = endTime - startTime
+        val totalSecs = (totalTimeMillis / 1000).toInt()
+        val formattedTime = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 val userID = (application as MyApp).userID
-                println(userID)
-                val gameID = 2 // Assuming gameID for game1 is 1
-                val levelID = 10 // Assuming levelID for level1 is 1
+                val gameID = 2
+                val levelID = 10 // This is for 'fear' (Game 2 Lev 1.4)
 
-                val url = URL("http://192.168.56.1/seniordes/g1l1test.php")
-                val urlConnection = url.openConnection() as HttpURLConnection
-                urlConnection.doOutput = true
-                urlConnection.requestMethod = "POST"
+                val url = URL("http://192.168.0.105/seniordes/g1l1test.php")
+                val conn = url.openConnection() as HttpURLConnection
+                conn.doOutput = true
+                conn.requestMethod = "POST"
 
-                // Construct POST data
                 val postData = "userID=$userID&gameID=$gameID&levelID=$levelID&mistakes=$mistakes&time=$formattedTime"
-                println(postData)
-                urlConnection.outputStream.write(postData.toByteArray(Charsets.UTF_8))
+                conn.outputStream.write(postData.toByteArray(Charsets.UTF_8))
 
-                val responseCode = urlConnection.responseCode
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    // Score saved successfully
-                    println("Score saved successfully")
+                if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                    Log.d("Game2Lev14", "Score saved")
                 } else {
-                    // Error saving score
-                    println("Error saving score")
+                    Log.e("Game2Lev14", "Score save failed")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
-    private fun setOtherButtonsGray(selectedOption: String) {
-        val buttons = listOf(happyButton, angryButton, scaredButton, sadButton)
-        for (button in buttons) {
-            if (button.tag != selectedOption) {
-                button.setBackgroundColor(0xFFCCCCCC.toInt()) // Gray color
-            }
-        }
-    }
+
+
 
     private fun getCorrectOptionFromRawFileName(): String {
-
-        return "scared" // Dummy value for now
+        return "scared"
     }
 }

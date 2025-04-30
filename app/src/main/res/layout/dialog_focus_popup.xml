@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/rounded_dialog"
+    android:gravity="center_horizontal">
+
+    <!-- Brain Image -->
+    <ImageView
+        android:id="@+id/brainImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/puzzle"
+    android:scaleType="fitCenter"
+    android:layout_marginBottom="16dp" />
+
+    <!-- Countdown Text -->
+    <TextView
+        android:id="@+id/countdownText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please focus..."
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold" />
+
+    <!-- Start Button -->
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Game"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+</LinearLayout>

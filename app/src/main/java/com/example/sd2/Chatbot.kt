@@ -3,8 +3,12 @@ package com.example.sd2
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,17 +20,48 @@ import org.json.JSONObject
 
 class Chatbot : AppCompatActivity() {
 
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var menuIcon: ImageView
+
     private lateinit var chatContainer: LinearLayout
     private lateinit var messageInput: EditText
     private lateinit var sendButton: Button
 
     private val client = OkHttpClient()
-    private val apiKey = "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" // replace with your real key
+    private val apiKey = " " //openAI API KEY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatbot)
 
+        // Drawer setup
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navigation_view)
+        menuIcon = findViewById(R.id.menuIcon)
+
+        menuIcon.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> startActivity(Intent(this, WelcomeActivity::class.java))
+                R.id.nav_dashboard -> startActivity(Intent(this, DashboardTest::class.java))
+                R.id.nav_chatbot -> startActivity(Intent(this, Chatbot::class.java))
+                R.id.nav_appointments -> startActivity(Intent(this, DoctorsAppointment::class.java))
+                R.id.nav_resources -> startActivity(Intent(this, ResourcesActivity::class.java))
+                R.id.nav_feedback -> startActivity(Intent(this, FeedbackActivity::class.java))
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        // Chat UI
         chatContainer = findViewById(R.id.chatContainer)
         messageInput = findViewById(R.id.messageInput)
         sendButton = findViewById(R.id.sendButton)
@@ -48,7 +83,7 @@ class Chatbot : AppCompatActivity() {
             setPadding(20, 12, 20, 12)
             setTextColor(
                 if (isUser) ContextCompat.getColor(context, android.R.color.white)
-                else ContextCompat.getColor(context, R.color.pastle_purple)
+                else ContextCompat.getColor(context, R.color.dark_blue)
             )
             background = if (isUser)
                 ContextCompat.getDrawable(context, R.drawable.user_message_background)
@@ -97,7 +132,6 @@ class Chatbot : AppCompatActivity() {
                         .getString("content")
 
                     runOnUiThread {
-                        // check for keywords
                         handleKeywordNavigation(userMessage.lowercase())
                         addMessage(botReply.trim(), isUser = false)
                     }

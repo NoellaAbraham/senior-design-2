@@ -1,177 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#86C4CC"
+    android:background="@drawable/gradient_loginbg"
     tools:context=".Game1Lev1Test">
 
-    <!-- Navigation Sidebar (left) -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/Menubar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.10"
-        app:layout_constraintHeight_percent="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/rounded_corner_navigation_view"
-        android:elevation="8dp"
-        app:itemIconTint="@color/Grey">
-        <!-- Stack ImageButtons vertically -->
+    <!-- Main Content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Menu Icon -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/icon_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Title -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="96dp">
+            android:id="@+id/titleLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/menuIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
 
-            <ImageButton
-                android:id="@+id/home_button"
-                android:layout_width="97dp"
-                android:layout_height="106dp"
-                android:background="@drawable/more_round"
-                android:contentDescription="Home"
-                android:scaleType="fitCenter"
-                android:src="@drawable/home_button" />
-
-            <ImageButton
-                android:id="@+id/report"
-                android:layout_width="96dp"
-                android:layout_height="99dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/more_round"
-                android:contentDescription="Report"
-                android:scaleType="fitCenter"
-                android:src="@drawable/report" />
-            <ImageButton
-                android:id="@+id/feedback"
+            <TextView
+                android:id="@+id/titleLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/more_round"
-                android:scaleType="fitCenter"
-                android:src="@drawable/icons8_feedback_100"
-                android:contentDescription="Feedback" />
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="52"
+                android:text="GAME 1 - "
+                android:textColor="#5BABEF"
+                android:textSize="64sp" />
 
-            <ImageButton
-                android:id="@+id/help"
-                android:layout_width="93dp"
-                android:layout_height="84dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/more_round"
-                android:contentDescription="Help"
-                android:scaleType="fitCenter"
-                android:src="@drawable/help" />
+            <TextView
+                android:id="@+id/titleLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="52"
+                android:text="LEVEL 1 TEST"
+                android:textColor="#3F51B5"
+                android:textSize="64sp" />
         </LinearLayout>
-    </com.google.android.material.navigation.NavigationView>
 
-    <!-- Title TextView ("Level 1 - Test") -->
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Level 1 - Test"
-        android:textSize="42sp"
-        android:textColor="@color/purple"
-        android:fontFamily="@font/bungee_shade"
-        android:shadowColor="#82B7BD"
-        android:shadowDx="-20"
-        android:shadowDy="-2"
-        android:shadowRadius="20"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/Menubar"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintHorizontal_bias="0.2"
-        android:layout_marginTop="16dp" />
+        <!-- Timer -->
+        <TextView
+            android:id="@+id/timeTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 00:00"
+            android:textColor="#FFF"
+            android:fontFamily="@font/luckiestguy_regular"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="94dp"/>
 
-    <!-- Left Cloud Image (imageView14) -->
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.15"
-        app:layout_constraintDimensionRatio="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="16dp" />
+        <!-- Tries -->
+        <TextView
+            android:id="@+id/triesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No. of tries: 0"
+            android:fontFamily="@font/luckiestguy_regular"
+            android:textColor="#FFF"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="94dp"/>
 
-    <!-- Right-side Image (imageView11) -->
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.25"
-        app:layout_constraintDimensionRatio="327:313"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageView14"
-        android:src="@drawable/front_side_removebg_preview"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="16dp" />
+        <!-- Card Container -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/gamePanel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.7"
+            app:layout_constraintTop_toBottomOf="@id/timeTaken"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="16dp"
+            android:backgroundTint="#FFFFFF">
 
-    <!-- Additional Cloud (imageView13) anchored below imageView14 -->
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.30"
-        app:layout_constraintDimensionRatio="575:341"
-        app:layout_constraintTop_toBottomOf="@id/imageView14"
-        app:layout_constraintStart_toStartOf="@id/imageView14"
-        android:src="@drawable/_94_1946555_set_cloud_white_cartoon_clouds_sky_soft_weather_cloud_removebg_preview"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="16dp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
 
-    <!-- Main Game Panel (visible by default) -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/gamePanel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.55"
-        app:layout_constraintHeight_percent="0.65"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        android:visibility="visible"
-        app:cardBackgroundColor="#e5e5e5"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="669dp"
-            android:layout_height="match_parent"
-            android:padding="16dp">
-
-            <!-- Horizontal Guideline to separate face and emotion buttons -->
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="358dp" />
-
-            <!-- Face Card (holds the emotion image) -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/faceCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
-                app:layout_constraintBottom_toTopOf="@id/guideline"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <!-- Face Image Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/faceCard"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintBottom_toTopOf="@+id/emotionsContainer"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="12dp">
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -179,129 +131,146 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
                         android:src="@drawable/happy" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <!-- Container for Emotion Buttons -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/emotionsContainer"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#e5e5e5"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/guideline">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/emotionsContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="8dp"
+                    android:backgroundTint="#f5f5f5">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <Button
-                        android:id="@+id/happyButt"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Happy" />
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:gravity="center_horizontal">
 
-                    <Button
-                        android:id="@+id/sadButt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Sad" />
+                        <!-- Horizontal Emotion Buttons Scroll -->
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fillViewport="true"
+                            android:scrollbars="none">
 
-                    <Button
-                        android:id="@+id/angryButt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Angry" />
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/surprisedButt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Surprised" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal"
+                                    android:gravity="center"
+                                    android:padding="8dp">
 
-                    <Button
-                        android:id="@+id/disgustButt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Disgust" />
+                                    <Button
+                                        android:id="@+id/happyButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="Happy"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
 
-                    <Button
-                        android:id="@+id/fearButt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:backgroundTint="#DF7F99"
-                        android:text="Fear" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                                    <Button
+                                        android:id="@+id/sadButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="Sad"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
 
-    <!-- Congrats Panel (hidden by default, same constraints as gamePanel) -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/congratsPanel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.55"
-        app:layout_constraintHeight_percent="0.65"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="#e5e5e5"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="30dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Congratulations"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="16dp" />
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Proceed to Next Level"
-                app:layout_constraintTop_toBottomOf="@id/textView4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="32dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                                    <Button
+                                        android:id="@+id/angryButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="Angry"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
 
-    <!-- Additional images, clouds, etc. can be added as needed -->
+                                    <Button
+                                        android:id="@+id/surprisedButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="Surprised"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                                    <Button
+                                        android:id="@+id/disgustButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="Disgust"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
+
+                                    <Button
+                                        android:id="@+id/fearButt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Fear"
+                                        android:textColor="#FFFFFF"
+                                        android:backgroundTint="#DF7F99" />
+                                </LinearLayout>
+                            </FrameLayout>
+                        </HorizontalScrollView>
+
+
+                        <!-- Pause & Continue Buttons -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/pauseButton"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_marginEnd="24dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/pause"
+                                android:scaleType="fitCenter" />
+
+                            <ImageButton
+                                android:id="@+id/continueButton"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/play_button"
+                                android:scaleType="fitCenter" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Drawer Menu -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:menu="@menu/drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -10,6 +10,7 @@ pluginManagement {
         mavenCentral()
         maven {
             url = uri("https://jitpack.io")
+            url = uri("https://jcenter.bintray.com/")
         }
         gradlePluginPortal()
     }

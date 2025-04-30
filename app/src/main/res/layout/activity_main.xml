@@ -162,16 +162,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/footerImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:contentDescription="Footer image"
-        android:scaleType="fitXY"
-        android:src="@drawable/kids_jumping"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginCard" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

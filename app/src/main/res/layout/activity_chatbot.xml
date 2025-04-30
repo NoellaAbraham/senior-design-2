@@ -1,104 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/gradient_loginbg"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Header -->
+    <!-- Main Chatbot Content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingBottom="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_loginbg"
+        android:padding="16dp">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/icon_menu"
-            android:tint="#FFFFFF"
-            android:layout_marginEnd="8dp" />
-
-        <TextView
-            android:id="@+id/titleText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/luckiestguy_regular"
-            android:shadowColor="#FFFFFF"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="52"
-            android:text="CHAT"
-            android:textColor="#5BABEF"
-            android:textSize="64sp" />
-
-        <TextView
-            android:id="@+id/titleText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/luckiestguy_regular"
-            android:shadowColor="#FFFFFF"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="52"
-            android:text="BOT"
-            android:textColor="#3F51B5"
-            android:textSize="64sp" />
-
-
-    </LinearLayout>
-
-
-    <!-- Chat Window -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/chat_window_background"
-        android:padding="12dp"
-        android:layout_marginBottom="8dp">
-
+        <!-- Header -->
         <LinearLayout
-            android:id="@+id/chatContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
-    </ScrollView>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
 
-    <!-- Input Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/message_input_background"
-        android:padding="8dp"
-        android:gravity="center_vertical"
-        android:elevation="8dp">
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_menu"
+                android:tint="#FFFFFF"
+                android:layout_marginEnd="8dp" />
 
-        <EditText
-            android:id="@+id/messageInput"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
+            <TextView
+                android:id="@+id/titleText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="52"
+                android:text="CHAT"
+                android:textColor="#5BABEF"
+                android:textSize="64sp" />
+
+            <TextView
+                android:id="@+id/titleText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="52"
+                android:text="BOT"
+                android:textColor="#3F51B5"
+                android:textSize="64sp" />
+        </LinearLayout>
+
+        <!-- Chat Window -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:hint="Ask any question..."
+            android:background="@drawable/chat_window_background"
             android:padding="12dp"
-            android:background="@android:color/transparent"
-            android:textColor="#5BABEF"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textColorHint="#BBBBBB"/>
+            android:layout_marginBottom="8dp">
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="SEND"
-            android:backgroundTint="#5BABEF"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"/>
+            <LinearLayout
+                android:id="@+id/chatContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+        </ScrollView>
+
+        <!-- Input Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/message_input_background"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:elevation="8dp">
+
+            <EditText
+                android:id="@+id/messageInput"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Ask any question..."
+                android:padding="12dp"
+                android:background="@android:color/transparent"
+                android:textColor="#5BABEF"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColorHint="#BBBBBB"/>
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="SEND"
+                android:backgroundTint="#5BABEF"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:itemIconTint="@null"
+        android:background="@drawable/rounded_corner_navigation_view" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

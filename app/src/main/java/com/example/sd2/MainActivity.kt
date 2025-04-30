@@ -6,10 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.ComponentActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -22,7 +19,7 @@ import java.net.URL
 
 class MainActivity : ComponentActivity() {
 
-    private var userID: Int = -1 // Default value indicating no userID
+    private var userID: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +27,9 @@ class MainActivity : ComponentActivity() {
 
         val cloudLeft = findViewById<ImageView>(R.id.cloudLeft)
         val cloudRight = findViewById<ImageView>(R.id.cloudRight)
-
         val cloudFloat = AnimationUtils.loadAnimation(this, R.anim.cloud_float)
-
         cloudLeft.startAnimation(cloudFloat)
         cloudRight.startAnimation(cloudFloat)
-
-        Log.d("CloudDebug", "Animation started on clouds")
-
 
         val editTextUsername = findViewById<EditText>(R.id.editTextText)
         val editTextPassword = findViewById<EditText>(R.id.editTextTextPassword)
@@ -61,9 +53,7 @@ class MainActivity : ComponentActivity() {
 
     private fun login(username: String, password: String) {
         val client = OkHttpClient()
-        val url = "http://10.0.2.2/seniordes/login.php" // Use correct IP
-
-        Log.d("LoginDebug", "Attempting login with Username: $username and Password: $password")
+        val url = "http://192.168.0.105/seniordes/login.php"
 
         val formBody = FormBody.Builder()
             .add("username", username)
@@ -84,49 +74,50 @@ class MainActivity : ComponentActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body?.string()
-                Log.d("LoginDebug", "Server response: $responseBody")
+                val body = response.body?.string()
+                Log.d("LoginDebug", "Raw response: $body")
 
-                if (response.isSuccessful && !responseBody.isNullOrEmpty()) {
+                if (response.isSuccessful && body != null && body.trim().startsWith("{")) {
                     try {
-                        val json = JSONObject(responseBody)
+                        val json = JSONObject(body)
                         val status = json.optString("status")
 
                         if (status == "success") {
                             val userID = json.getInt("userID")
-                            val userType = json.optString("userType")
-
-                            Log.d("LoginDebug", "Login successful! UserID: $userID, UserType: $userType")
-
+                            val userType = json.getString("userType")
                             (application as MyApp).userID = userID
 
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_SHORT).show()
                                 when (userType) {
-                                    "student" -> goToNextActivity(this@MainActivity, Dashboard::class.java)
+                                    "student" -> goToNextActivity(this@MainActivity, WelcomeActivity::class.java)
                                     "caretaker" -> goToNextActivity(this@MainActivity, CTDashboard::class.java)
+                                    "doctor" -> goToNextActivity(this@MainActivity, DoctorDashboardActivity::class.java)
                                     else -> Toast.makeText(applicationContext, "Unknown user type", Toast.LENGTH_SHORT).show()
                                 }
                             }
                         } else {
-                            Log.e("LoginDebug", "Login failed: Invalid credentials")
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "Invalid username or password", Toast.LENGTH_SHORT).show()
                             }
                         }
                     } catch (e: Exception) {
                         Log.e("LoginDebug", "JSON parsing error: ${e.message}")
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "Error parsing server response", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 } else {
-                    Log.e("LoginDebug", "Server returned error: ${response.code}")
                     runOnUiThread {
-                        Toast.makeText(applicationContext, "Server error: ${response.code}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Server response invalid or unexpected", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
     }
 }
+
+// === GLOBAL FUNCTIONS ===
 
 fun goToNextActivity(context: Context, nextActivityClass: Class<*>) {
     val intent = Intent(context, nextActivityClass)
@@ -136,7 +127,7 @@ fun goToNextActivity(context: Context, nextActivityClass: Class<*>) {
 fun saveProgressToDatabase(userID: Int, gameID: Int, levelID: Int, progress: Int) {
     GlobalScope.launch(Dispatchers.IO) {
         try {
-            val url = URL("http://10.0.2.2/seniordes/progressRep.php")
+            val url = URL("http://10.1.38.153/seniordes/progressRep.php")
             val urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.doOutput = true
             urlConnection.requestMethod = "POST"

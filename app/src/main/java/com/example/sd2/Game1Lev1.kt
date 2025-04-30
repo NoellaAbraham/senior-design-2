@@ -1,135 +1,137 @@
 package com.example.sd2
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.media.PlaybackParams
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
+import androidx.cardview.widget.CardView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 
 class Game1Lev1 : ComponentActivity() {
-    private lateinit var viewFlipper: ViewFlipper
-    private lateinit var nextButton: Button
-    private lateinit var prevButton: Button
-    private lateinit var imageView: ImageView
-    private lateinit var textView: TextView
-    private lateinit var proceedButton: Button
-    // private lateinit var bgmMediaPlayer: MediaPlayer // Add this line
+
+    private lateinit var faceImage: ImageView
+    private lateinit var emotionText: TextView
+    private lateinit var flipPrompt: TextView
+    private lateinit var continueButton: ImageButton
+    private lateinit var nextButton: ImageButton
+    private lateinit var cardView: CardView
+    private lateinit var menuIcon: ImageView
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
 
     private val emotions = arrayOf("Happy", "Sad", "Angry", "Surprised", "Disgust", "Fear")
     private var currentIndex = 0
-    private var emotionsVisited = 0
-
     private var mediaPlayer: MediaPlayer? = null
+    private var isImageVisible = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game1_lev1)
 
-        viewFlipper = findViewById(R.id.viewFlipper)
-        nextButton = findViewById(R.id.sadButt)
-        prevButton = findViewById(R.id.happyButt)
-        imageView = findViewById(R.id.imageView2)
-        textView = findViewById(R.id.textView)
-        proceedButton = findViewById(R.id.proceedButton)
+        faceImage = findViewById(R.id.faceImage)
+        emotionText = findViewById(R.id.emotionText)
+        flipPrompt = findViewById(R.id.flipPrompt)
+        continueButton = findViewById(R.id.continueButton)
+        nextButton = findViewById(R.id.scaredans)
+        cardView = findViewById(R.id.flipCard)
+        menuIcon = findViewById(R.id.menuIcon)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navigation_view)
 
-        // Flip animation (both files)
-        val inAnimation = AnimationUtils.loadAnimation(this, R.anim.flip_in)
-        val outAnimation = AnimationUtils.loadAnimation(this, R.anim.flip_out)
-        viewFlipper.inAnimation = inAnimation
-        viewFlipper.outAnimation = outAnimation
+        updateEmotion()
 
-        viewFlipper.setOnClickListener {
-            viewFlipper.showNext()
-            checkEmotionIndex()
-        }
-
-        nextButton.setOnClickListener {
+        continueButton.setOnClickListener {
             showNextEmotion()
         }
 
-        prevButton.setOnClickListener {
-            showPreviousEmotion()
-        }
-
-        proceedButton.setOnClickListener {
-            goToNextActivity(this, Game1Lev1Test::class.java)
-
-            val progress = 10
+        nextButton.setOnClickListener {
+            startActivity(Intent(this, Game1Lev1Test::class.java))
             val userID = (application as MyApp).userID
-
-            saveProgressToDatabase(userID, 1, 1, progress)
+            saveProgressToDatabase(userID, 1, 1, 10)
         }
 
-        // Set initial emotion
-        updateEmotion()
+        menuIcon.setOnClickListener {
+            drawerLayout.openDrawer(Gravity.LEFT)
+        }
 
-        // Initialize background music
-        //   bgmMediaPlayer = MediaPlayer.create(this, R.raw.bgm1)
-        //   bgmMediaPlayer.isLooping = true
-        //   bgmMediaPlayer.setVolume(0.05f, 0.05f) // Set the volume level here (0.5f for half volume, 1.0f is full volume)
-        //   bgmMediaPlayer.start()
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> startActivity(Intent(this, WelcomeActivity::class.java))
+                R.id.nav_dashboard -> startActivity(Intent(this, DashboardTest::class.java))
+                R.id.nav_chatbot -> startActivity(Intent(this, Chatbot::class.java))
+                R.id.nav_appointments -> startActivity(Intent(this, DoctorsAppointment::class.java))
+                R.id.nav_resources -> startActivity(Intent(this, ResourcesActivity::class.java))
+                R.id.nav_feedback -> startActivity(Intent(this, FeedbackActivity::class.java))
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        cardView.setOnClickListener {
+            flipCard()
+        }
+    }
+
+    private fun flipCard() {
+        val flipOut = AnimationUtils.loadAnimation(this, R.anim.flip_out)
+        val flipIn = AnimationUtils.loadAnimation(this, R.anim.flip_in)
+
+        cardView.startAnimation(flipOut)
+        flipOut.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+            override fun onAnimationStart(animation: android.view.animation.Animation) {}
+            override fun onAnimationRepeat(animation: android.view.animation.Animation) {}
+
+            override fun onAnimationEnd(animation: android.view.animation.Animation) {
+                if (isImageVisible) {
+                    faceImage.visibility = View.GONE
+                    emotionText.visibility = View.VISIBLE
+                } else {
+                    faceImage.visibility = View.VISIBLE
+                    emotionText.visibility = View.GONE
+                }
+                isImageVisible = !isImageVisible
+                cardView.startAnimation(flipIn)
+            }
+        })
     }
 
     private fun showNextEmotion() {
-        // Increment index
         currentIndex = (currentIndex + 1) % emotions.size
-        // Update emotion
-        updateEmotion()
-    }
-
-    private fun showPreviousEmotion() {
-        // Decrement index
-        currentIndex = (currentIndex - 1 + emotions.size) % emotions.size
-        // Update emotion
         updateEmotion()
     }
 
     private fun updateEmotion() {
         val emotion = emotions[currentIndex]
-        val drawableId = resources.getIdentifier(emotion.toLowerCase(), "drawable", packageName)
-        imageView.setImageResource(drawableId)
-        textView.text = emotion
+        val drawableId = resources.getIdentifier(emotion.lowercase(), "drawable", packageName)
+        val audioId = resources.getIdentifier("${emotion.lowercase()}_audio", "raw", packageName)
 
-        // Play corresponding audio
-        playAudio(emotion)
+        faceImage.setImageResource(drawableId)
+        emotionText.text = emotion.uppercase()
 
-        // Increment emotionsVisited
-        emotionsVisited++
-    }
-
-    private fun playAudio(emotion: String) {
-        mediaPlayer?.stop() // Stop previously playing audio
-        mediaPlayer?.release() // Release previous MediaPlayer instance
-        val audioResourceId = resources.getIdentifier(emotion.toLowerCase() + "_audio", "raw", packageName)
-        mediaPlayer = MediaPlayer.create(this, audioResourceId)
-
-        // Set playback speed
-        val playbackParams = PlaybackParams()
-        playbackParams.speed = 0.75f // Set the speed to 0.5 to slow down the audio
-        mediaPlayer?.playbackParams = playbackParams
-
-        mediaPlayer?.setVolume(1.5f, 1.5f) // Set the volume level here (0.5f for half volume, 1.0f is full volume)
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(this, audioId)
+        mediaPlayer?.playbackParams = PlaybackParams().setSpeed(0.75f)
+        mediaPlayer?.setVolume(1.2f, 1.2f)
         mediaPlayer?.start()
-    }
-
-    private fun checkEmotionIndex() {
-        if (emotionsVisited >= emotions.size) {
-            proceedButton.visibility = View.VISIBLE
-        } else {
-            proceedButton.visibility = View.GONE
-        }
     }
 
     override fun onStop() {
         super.onStop()
         mediaPlayer?.stop()
         mediaPlayer?.release()
-        //   bgmMediaPlayer.stop() // Stop background music when activity is stopped
-        //   bgmMediaPlayer.release()
     }
 }

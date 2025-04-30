@@ -6,13 +6,13 @@ import android.media.PlaybackParams
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
+import android.view.MenuItem
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,8 +21,22 @@ import java.net.URL
 
 class Game1Lev1Test : AppCompatActivity() {
 
-    private var startTime: Long = 0
-    private var endTime: Long = 0
+    private lateinit var timeTaken: TextView
+    private lateinit var triesText: TextView
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var menuIcon: ImageView
+    private lateinit var pauseButton: ImageButton
+    private lateinit var continueButton: ImageButton
+
+    private var startTime: Long = 0L
+    private var pauseTime: Long = 0L
+    private var totalPausedTime: Long = 0L
+    private var isTimerRunning = true
+    private val handler = Handler(Looper.getMainLooper())
+
+    private var numberOfTries = 0
+    private var mistakes = 0
 
     private val images = listOf(
         R.drawable.happy,
@@ -31,11 +45,8 @@ class Game1Lev1Test : AppCompatActivity() {
         R.drawable.surprised,
         R.drawable.disgust,
         R.drawable.fear
-
     ).shuffled()
 
-    private lateinit var gamePanel: View
-    private lateinit var congratsPanel: View
     private lateinit var imageView: ImageView
     private lateinit var happyButton: Button
     private lateinit var sadButton: Button
@@ -43,159 +54,160 @@ class Game1Lev1Test : AppCompatActivity() {
     private lateinit var surprisedButton: Button
     private lateinit var disgustButton: Button
     private lateinit var fearButton: Button
-    private lateinit var proceedButton: Button
-    private lateinit var bgmMediaPlayer: MediaPlayer
-
 
     private var currentIndex = -1
-    private var mistakes = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_game1_lev1_test)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        // Initialize views
-        gamePanel = findViewById(R.id.gamePanel)
-        congratsPanel = findViewById(R.id.congratsPanel)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navigation_view)
+        menuIcon = findViewById(R.id.menuIcon)
+        pauseButton = findViewById(R.id.pauseButton)
+        continueButton = findViewById(R.id.continueButton)
         imageView = findViewById(R.id.imageView2)
+        timeTaken = findViewById(R.id.timeTaken)
+        triesText = findViewById(R.id.triesText)
+
         happyButton = findViewById(R.id.happyButt)
         sadButton = findViewById(R.id.sadButt)
         angryButton = findViewById(R.id.angryButt)
         surprisedButton = findViewById(R.id.surprisedButt)
         disgustButton = findViewById(R.id.disgustButt)
         fearButton = findViewById(R.id.fearButt)
-        proceedButton = findViewById(R.id.button)
 
-        // Start game
-        nextImage()
-
-        // Set click listeners
-        happyButton.setOnClickListener {
-            checkAnswer("happy")
-            playSound(R.raw.happy_audio)
-        }
-        sadButton.setOnClickListener {
-            checkAnswer("sad")
-            playSound(R.raw.sad_audio)
-        }
-        angryButton.setOnClickListener {
-            checkAnswer("angry")
-            playSound(R.raw.angry_audio)
-        }
-        surprisedButton.setOnClickListener {
-            checkAnswer("surprised")
-            playSound(R.raw.surprised_audio)
-        }
-        disgustButton.setOnClickListener {
-            checkAnswer("disgust")
-            playSound(R.raw.disgust_audio)
-        }
-        fearButton.setOnClickListener {
-            checkAnswer("fear")
-            playSound(R.raw.fear_audio)
+        menuIcon.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> startActivity(Intent(this, WelcomeActivity::class.java))
+                R.id.nav_dashboard -> startActivity(Intent(this, DashboardTest::class.java))
+                R.id.nav_chatbot -> startActivity(Intent(this, Chatbot::class.java))
+                R.id.nav_appointments -> startActivity(Intent(this, DoctorsAppointment::class.java))
+                R.id.nav_resources -> startActivity(Intent(this, ResourcesActivity::class.java))
+                R.id.nav_feedback -> startActivity(Intent(this, FeedbackActivity::class.java))
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        setButtonListeners()
+
+        pauseButton.setOnClickListener {
+            pauseTime = System.currentTimeMillis()
+            isTimerRunning = false
+        }
+
+        continueButton.setOnClickListener {
+            if (!isTimerRunning) {
+                totalPausedTime += System.currentTimeMillis() - pauseTime
+                isTimerRunning = true
+                updateTimer()
+            }
+        }
 
         startTime = System.currentTimeMillis()
-
+        updateTimer()
+        nextImage()
     }
 
-    private fun playSound(audioResource: Int) {
-        val mediaPlayer = MediaPlayer.create(this, audioResource)
-        mediaPlayer?.setVolume(2.5f, 2.5f) // Set the volume level here (0.5f for half volume, 1.0f is full volume)
-
-        // Set playback speed
-        val playbackParams = PlaybackParams()
-        playbackParams.speed = 1f // Set the speed to 0.5 to slow down the audio
-        mediaPlayer.playbackParams = playbackParams
-
-        mediaPlayer.start()
-        mediaPlayer.setOnCompletionListener {
-            // Release MediaPlayer when playback is completed
-            it.release()
-        }
+    private fun updateTimer() {
+        handler.post(object : Runnable {
+            override fun run() {
+                if (isTimerRunning) {
+                    val currentTime = System.currentTimeMillis()
+                    val elapsedMillis = currentTime - startTime - totalPausedTime
+                    val minutes = (elapsedMillis / 1000) / 60
+                    val seconds = (elapsedMillis / 1000) % 60
+                    timeTaken.text = String.format("Time: %02d:%02d", minutes, seconds)
+                    handler.postDelayed(this, 1000)
+                }
+            }
+        })
     }
 
-    private fun nextImage() {
-        val delayMillis = 1000L // 1 second delay
-
-        // Get the next image resource
-        currentIndex = (currentIndex + 1) % images.size
-        val imageResource = images[currentIndex]
-
-        // Show the next image after the delay
-        Handler(Looper.getMainLooper()).postDelayed({
-            imageView.setImageResource(imageResource)
-        }, delayMillis)
+    private fun setButtonListeners() {
+        happyButton.setOnClickListener { handleGuess("happy", R.raw.happy_audio) }
+        sadButton.setOnClickListener { handleGuess("sad", R.raw.sad_audio) }
+        angryButton.setOnClickListener { handleGuess("angry", R.raw.angry_audio) }
+        surprisedButton.setOnClickListener { handleGuess("surprised", R.raw.surprised_audio) }
+        disgustButton.setOnClickListener { handleGuess("disgust", R.raw.disgust_audio) }
+        fearButton.setOnClickListener { handleGuess("fear", R.raw.fear_audio) }
     }
 
-    private fun checkAnswer(guess: String) {
-        val correctAnswer = getImageName(images[currentIndex])
-        if (guess == correctAnswer) {
-            // Correct answer
-            nextImage()
-            if (currentIndex == 0) {
-                // All images shown, show congratulations panel and save score
+    private fun handleGuess(guess: String, audioRes: Int) {
+        numberOfTries++
+        triesText.text = "No. of tries: $numberOfTries"
+        val correct = getImageName(images[currentIndex]) == guess
+        playSound(audioRes)
+
+        if (correct) {
+            if (currentIndex + 1 >= images.size) {
                 saveScoreToDatabase()
-
-                    val progress = 40
-                    val userID = (application as MyApp).userID
-
-                    saveProgressToDatabase(userID, 1, 1, progress)
-
-                    val intent = Intent(this, Congratulations::class.java)
-                    intent.putExtra("CURRENT_LEVEL", "Game1Lev1Test")
-                    startActivity(intent)
-                    finish()
-
+                startActivity(Intent(this, Game1Lev2::class.java).apply {
+                    putExtra("CURRENT_LEVEL", "Game1Lev1Test")
+                })
+                finish()
+            } else {
+                nextImage()
             }
         } else {
-            // Incorrect answer
             mistakes++
         }
     }
 
+    private fun playSound(audioResource: Int) {
+        val mediaPlayer = MediaPlayer.create(this, audioResource)
+        mediaPlayer?.setVolume(1.5f, 1.5f)
+        val playbackParams = PlaybackParams().apply { speed = 0.75f }
+        mediaPlayer.playbackParams = playbackParams
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener { it.release() }
+    }
+
+    private fun nextImage() {
+        currentIndex++
+        if (currentIndex < images.size) {
+            imageView.setImageResource(images[currentIndex])
+        }
+    }
+
+    private fun getImageName(imageResId: Int): String {
+        return resources.getResourceEntryName(imageResId)
+    }
+
     private fun saveScoreToDatabase() {
+        val endTime = System.currentTimeMillis()
+        val totalTimeMillis = endTime - startTime - totalPausedTime
+        val totalSecs = (totalTimeMillis / 1000).toInt()
+        val formattedTime = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
 
-        endTime = System.currentTimeMillis()
-        val timeTaken = endTime - startTime
-
-        val minutes = (timeTaken / 1000) / 60
-        val seconds = (timeTaken / 1000) % 60
-
-        // Format time as mm:ss
-        val formattedTime = String.format("%02d:%02d", minutes, seconds)
+        val userID = (application as MyApp).userID
+        val gameID = 1
+        val levelID = 1
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val userID = (application as MyApp).userID
-                println(userID)
-                val gameID = 1 // Assuming gameID for game1 is 1
-                val levelID = 1 // Assuming levelID for level1 is 1
+                val url = URL("http://192.168.0.105/seniordes/g1l1test.php")
+                val conn = url.openConnection() as HttpURLConnection
+                conn.doOutput = true
+                conn.requestMethod = "POST"
 
-                val url = URL("http://192.168.56.1/seniordes/g1l1test.php")
-                val urlConnection = url.openConnection() as HttpURLConnection
-                urlConnection.doOutput = true
-                urlConnection.requestMethod = "POST"
+                val postData =
+                    "userID=$userID&gameID=$gameID&levelID=$levelID&mistakes=$mistakes&time=$formattedTime"
+                conn.outputStream.write(postData.toByteArray(Charsets.UTF_8))
 
-                // Construct POST data
-                val postData = "userID=$userID&gameID=$gameID&levelID=$levelID&mistakes=$mistakes&time=$formattedTime"
-                println(postData)
-                urlConnection.outputStream.write(postData.toByteArray(Charsets.UTF_8))
-
-                val responseCode = urlConnection.responseCode
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    // Score saved successfully
-                    println("Score saved successfully")
+                if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                    Log.d("Game1Lev1Test", "Score saved successfully")
                 } else {
-                    // Error saving score
-                    println("Error saving score")
+                    Log.e("Game1Lev1Test", "Failed to save score")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -203,14 +215,8 @@ class Game1Lev1Test : AppCompatActivity() {
         }
     }
 
-
-    private fun getImageName(imageResId: Int): String {
-        return resources.getResourceEntryName(imageResId)
+    override fun onStop() {
+        super.onStop()
+        handler.removeCallbacksAndMessages(null)
     }
-
-    // override fun onPause() {
-    //    bgmMediaPlayer.stop() // Stop background music when activity is stopped
-    //    bgmMediaPlayer.release()
-    //    super.onPause()
-    //}
 }

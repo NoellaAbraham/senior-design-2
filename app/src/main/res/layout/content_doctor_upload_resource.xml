@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload a New Resource"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/resourceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Title"
+            android:padding="12dp"
+            android:background="@color/white"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/resourceDescription"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Enter Description"
+            android:gravity="top"
+            android:padding="12dp"
+            android:background="@color/white"
+            android:layout_marginBottom="16dp"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/resourceLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Resource Link (https://...)"
+            android:padding="12dp"
+            android:background="@color/white"
+            android:inputType="textUri"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/uploadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Resource"
+            android:backgroundTint="@color/dark_blue"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</ScrollView>

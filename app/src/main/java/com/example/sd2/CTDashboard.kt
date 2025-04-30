@@ -28,10 +28,9 @@ class CTDashboard : AppCompatActivity() {
     }
 
 
-
-    private fun fetchStudentsData() {
+   private fun fetchStudentsData() {
         val client = OkHttpClient()
-        val url = URL("http://10.0.2.2/seniordes/ctDash.php") // Replace with your PHP endpoint URL
+        val url = URL("http://192.168.0.105/seniordes/ctDash.php")
 
         // Access user ID from MyApp
         val userID = (application as MyApp).userID

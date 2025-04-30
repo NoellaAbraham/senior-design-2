@@ -8,14 +8,39 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
+import androidx.drawerlayout.widget.DrawerLayout
 
 class Game2Lev2 : AppCompatActivity() {
     private lateinit var videoView: VideoView
     private lateinit var continueButton: Button
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game2_lev2)
+
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navigation_view)
+
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> startActivity(Intent(this, WelcomeActivity::class.java))
+                R.id.nav_dashboard -> startActivity(Intent(this, DashboardTest::class.java))
+                R.id.nav_chatbot -> startActivity(Intent(this, Chatbot::class.java))
+                R.id.nav_appointments -> startActivity(Intent(this, DoctorsAppointment::class.java))
+                R.id.nav_resources -> startActivity(Intent(this, ResourcesActivity::class.java))
+                R.id.nav_feedback -> startActivity(Intent(this, FeedbackActivity::class.java))
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
 
         showContinueButton()
 
@@ -26,28 +51,17 @@ class Game2Lev2 : AppCompatActivity() {
 
         setupMediaControls()
 
-        val imageButton5 = findViewById<ImageButton>(R.id.home_button)
-
-        imageButton5.setOnClickListener {
-
-            val intent = Intent(this, Dashboard::class.java)
-            startActivity(intent)
-
-        }
 
         videoView.setOnCompletionListener {
             val intent = Intent(this, Congratulations::class.java)
             intent.putExtra("CURRENT_LEVEL", "Game2Lev2")
             startActivity(intent)
 
-
-
-            val progress = 10;
+            val progress = 10
             val userID = (application as MyApp).userID
 
             saveProgressToDatabase(userID, 2, 11, progress)
             finish()
-
         }
     }
 
@@ -56,10 +70,10 @@ class Game2Lev2 : AppCompatActivity() {
         continueButton.visibility = View.VISIBLE
 
         continueButton.setOnClickListener {
-            val intent = Intent(this, Congratulations::class.java)
+            val intent = Intent(this, Game2Lev31::class.java)
             startActivity(intent)
 
-            val progress = 10;
+            val progress = 10
             val userID = (application as MyApp).userID
 
             saveProgressToDatabase(userID, 2, 9, progress)

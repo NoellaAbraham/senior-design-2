@@ -38,7 +38,7 @@ class FeedbackActivity : AppCompatActivity() {
     }
 
     private fun submitFeedback(name: String, email: String, feedback: String) {
-        val url = "http://10.0.2.2/seniordes/feedback.php"
+        val url = "http://192.168.0.105/seniordes/feedback.php"
 
         val request = object : StringRequest(
             Method.POST, url,

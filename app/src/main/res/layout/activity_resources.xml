@@ -1,315 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/gradient_loginbg"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Header Section -->
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/rounded_corner_navigation_view"
+        app:menu="@menu/drawer_menu"
+        app:itemIconTint="@null" />
+
+    <!-- Main Content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingBottom="20dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_loginbg"
+        android:padding="16dp">
 
-        <!-- Menu Icon -->
-        <ImageView
-            android:layout_width="52dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/icon_menu"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="fitCenter" />
-
-        <!-- Hi Parent! Text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HI PARENT!"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!-- Title centered -->
-    <LinearLayout
-        android:id="@+id/titleLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/titleText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/luckiestguy_regular"
-            android:shadowColor="#FFFFFF"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="52"
-            android:text="RESO"
-            android:textColor="#5BABEF"
-            android:textSize="64sp" />
-
-        <TextView
-            android:id="@+id/titleText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/luckiestguy_regular"
-            android:shadowColor="#FFFFFF"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="52"
-            android:text="URCES"
-            android:textColor="#3F51B5"
-            android:textSize="64sp" />
-    </LinearLayout>
-
-    <!-- ScrollView for Resources -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingTop="8dp">
-
+        <!-- Header Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="20dp">
 
-            <!-- Resource Cards -->
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="52dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_menu"
+                android:tint="#FFFFFF"
+                android:scaleType="fitCenter" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
-                android:backgroundTint="#F7FAFE">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/resources_test"
-                        android:scaleType="fitCenter" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Autism Spectrum Disorder"
-                            android:textColor="#333333"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                            android:textColor="#666666"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:id="@+id/learnMore1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Learn More"
-                            android:textColor="#3F51B5"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
-                android:backgroundTint="#F7FAFE">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/resources_test"
-                        android:scaleType="fitCenter" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Autism Spectrum Disorder"
-                            android:textColor="#333333"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                            android:textColor="#666666"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:id="@+id/learnMore2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Learn More"
-                            android:textColor="#3F51B5"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
-                android:backgroundTint="#F7FAFE">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/resources_test"
-                        android:scaleType="fitCenter" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Autism Spectrum Disorder"
-                            android:textColor="#333333"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                            android:textColor="#666666"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:id="@+id/learnMore3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Learn More"
-                            android:textColor="#3F51B5"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
-                android:backgroundTint="#F7FAFE">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/resources_test"
-                        android:scaleType="fitCenter" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Autism Spectrum Disorder"
-                            android:textColor="#333333"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                            android:textColor="#666666"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:id="@+id/learnMore4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Learn More"
-                            android:textColor="#3F51B5"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
+                android:text="HI PARENT!"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                android:textStyle="bold" />
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <!-- Title Section -->
+        <LinearLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/titleText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="52"
+                android:text="RESO"
+                android:textColor="#5BABEF"
+                android:textSize="64sp" />
+
+            <TextView
+                android:id="@+id/titleText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/luckiestguy_regular"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="52"
+                android:text="URCES"
+                android:textColor="#3F51B5"
+                android:textSize="64sp" />
+        </LinearLayout>
+
+        <!-- Scrollable Resource List -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="8dp">
+
+            <LinearLayout
+                android:id="@+id/resourceContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

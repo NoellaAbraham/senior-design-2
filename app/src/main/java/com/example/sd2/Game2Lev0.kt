@@ -3,40 +3,61 @@ package com.example.sd2
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
-import android.widget.VideoView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 
 class Game2Lev0 : AppCompatActivity() {
     private lateinit var videoView: VideoView
     private lateinit var continueButton: Button
+    private lateinit var drawerLayout: androidx.drawerlayout.widget.DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var menuIcon: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game2_lev0)
 
         videoView = findViewById(R.id.videoView)
+        continueButton = findViewById(R.id.continueBtn)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navigation_view)
+        menuIcon = findViewById(R.id.menuIcon)
 
         showContinueButton()
 
-        // Directly specify the video file name within the URI string
         val offlineUri: Uri = Uri.parse("android.resource://$packageName/${R.raw.happy_lev0}")
         videoView.setVideoURI(offlineUri)
 
         setupMediaControls()
 
         videoView.setOnCompletionListener {
-
+            // Optional: handle completion
         }
 
-        val imageButton5 = findViewById<ImageButton>(R.id.home_button)
-        imageButton5.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
-            startActivity(intent)
+
+        menuIcon.setOnClickListener {
+            drawerLayout.openDrawer(Gravity.LEFT)
+        }
+
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> startActivity(Intent(this, WelcomeActivity::class.java))
+                R.id.nav_dashboard -> startActivity(Intent(this, DashboardTest::class.java))
+                R.id.nav_chatbot -> startActivity(Intent(this, Chatbot::class.java))
+                R.id.nav_appointments -> startActivity(Intent(this, DoctorsAppointment::class.java))
+                R.id.nav_resources -> startActivity(Intent(this, ResourcesActivity::class.java))
+                R.id.nav_feedback -> startActivity(Intent(this, FeedbackActivity::class.java))
+                R.id.nav_logout -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
     }
 
@@ -63,21 +84,15 @@ class Game2Lev0 : AppCompatActivity() {
     }
 
     private fun showContinueButton() {
-        continueButton = findViewById(R.id.continueBtn)
         continueButton.visibility = View.VISIBLE
-
-
         continueButton.setOnClickListener {
-            val intent = Intent(this, Game2Lev02::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Game2Lev01::class.java))
 
-            val progress = 10;
+            val progress = 10
             val userID = (application as MyApp).userID
 
             saveProgressToDatabase(userID, 2, 4, progress)
             finish()
         }
     }
-
-
 }

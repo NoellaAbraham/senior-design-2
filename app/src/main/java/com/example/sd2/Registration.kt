@@ -57,7 +57,7 @@ class Registration : ComponentActivity() {
         val userType = spinnerUserType.selectedItem.toString()
         val password = editTextPassword.text.toString()
 
-        val url = "http://192.168.56.1/seniordes/register.php"
+        val url = "http://192.168.0.105/seniordes/register.php"
 
         val stringRequest = object : StringRequest(
             Method.POST, url,

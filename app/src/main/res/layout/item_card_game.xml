@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="420dp"
+    android:layout_height="420dp"
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp"
+    android:backgroundTint="#A2EBF4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/cardIcon"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/heart"
+            android:contentDescription="Icon" />
+
+        <TextView
+            android:id="@+id/cardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GAME 1"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/cardLevels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 Levels"
+            android:textSize="4sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

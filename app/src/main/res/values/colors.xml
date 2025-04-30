@@ -12,6 +12,7 @@
     <color name="Orangy">#FFB562</color>
     <color name="gray">#CCCCCC</color>
     <color name="dark_gray">#777777</color>
+    <color name="dark_blue">#3F51B5</color>
 
     <color name="game2_cardview_color">#D490DF</color>
     <color name="game3_cardview_color">#FE9DB0</color>

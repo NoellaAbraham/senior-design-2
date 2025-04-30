@@ -50,6 +50,8 @@ android {
     }
 }
 
+
+
 dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("org.json:json:20210307")
@@ -57,6 +59,19 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // CameraX
+    implementation("androidx.camera:camera-camera2:1.3.0")
+    implementation("androidx.camera:camera-lifecycle:1.3.0")
+    implementation("androidx.camera:camera-view:1.3.0")
+
+// Retrofit for server communication
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+// Image processing
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+
 
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
@@ -115,6 +130,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 
 
     // Add OkHttp dependency

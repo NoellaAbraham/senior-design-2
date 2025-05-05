@@ -39,11 +39,19 @@ MoodMap is a mobile application designed to support emotional learning in childr
 
 ---
 
+## 📂 Folder Structure
+/app → Android project files
+/php_backend → PHP scripts and database logic
+/assets → Image, sound, and animation files
+/emotion_model → AI/ML models and emotion detection scripts
+/database → moodmap SQL database 
+
+---
+
 ## 🌐 Deployment
 
 - Currently tested locally via XAMPP  
 - Cloud deployment planned using AWS or Firebase  
-- No personal data is stored — local processing only
 
 ---
 
@@ -62,6 +70,7 @@ MoodMap is a mobile application designed to support emotional learning in childr
 - Deploy to cloud with secure login and backups  
 - Enable streak tracking and therapist admin panel  
 - Add multilingual support and adaptive features
+- VR integration
 
 ---
 
